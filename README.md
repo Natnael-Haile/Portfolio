@@ -1,5 +1,3 @@
-## Hi there 👋
-
 # Hi, I'm Natnael Haile 👋
 
 ### Aspiring SOC Analyst | Cybersecurity Enthusiast | IT Student
@@ -37,5 +35,5 @@ Seeking opportunities in SOC analysis, cybersecurity operations, threat detectio
 
 ## 📫 Connect With Me
 
-- LinkedIn: Add your LinkedIn URL
-- Email: Add your professional contact email
+- LinkedIn: https://www.linkedin.com/in/natnael-haile-b368b02b5/?isSelfProfile=true
+- Email: natiman1018@gmail.com
