@@ -1,4 +1,4 @@
-# Hi, I'm Natnael Haile 👋
+# Hi, I'm Natnael Haile 
 
 ### Aspiring SOC Analyst | Cybersecurity Enthusiast | IT Student
 
@@ -6,7 +6,7 @@ I'm pursuing a Bachelor of Science in Information Technology with a concentratio
 
 I'm passionate about security operations, threat detection, vulnerability assessment, and incident response.
 
-## 🛡️ Technical Skills
+##  Technical Skills
 
 - **SIEM & Security Monitoring:** Wazuh
 - **Operating Systems:** Windows, Kali Linux, Ubuntu
@@ -15,7 +15,7 @@ I'm passionate about security operations, threat detection, vulnerability assess
 - **Virtualization:** VirtualBox
 - **Web Development:** HTML
 
-## 🔬 Cybersecurity Projects
+##  Cybersecurity Projects
 
 ### Wazuh SOC Home Lab
 Building hands-on experience with centralized security monitoring, endpoint telemetry, and incident investigation.
@@ -29,11 +29,11 @@ Exploring phishing detection, email security, and social engineering threats.
 ### Python Security Log Analyzer
 Planned project focused on security log parsing, suspicious activity detection, and automation.
 
-## 🎯 Career Goals
+##  Career Goals
 
 Seeking opportunities in SOC analysis, cybersecurity operations, threat detection, and incident response.
 
-## 📫 Connect With Me
+##  Connect With Me
 
 - LinkedIn: https://www.linkedin.com/in/natnael-haile-b368b02b5/?isSelfProfile=true
 - Email: natiman1018@gmail.com
