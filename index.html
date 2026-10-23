@@ -1,1 +1,929 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Natnael Haile — aspiring SOC Analyst. Explore my SOC Home Lab, cybersecurity projects, and experience.">
+  <title>Natnael Haile | Cybersecurity Portfolio</title>
+
+  <style>
+    :root {
+      --bg: #07111f;
+      --panel: #102338;
+      --panel2: #0b1a2b;
+      --text: #f0f7ff;
+      --muted: #adc0d1;
+      --accent: #38e8db;
+      --line: #25445a;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.65;
+
+      /* SOC background across the entire website */
+      background-color: #06101d;
+      background-image:
+        linear-gradient(
+          90deg,
+          rgba(3, 11, 23, 0.91),
+          rgba(3, 14, 28, 0.80)
+        ),
+        url("assets/soc-background.jpg");
+
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .wrap {
+      width: min(1100px, 92%);
+      margin: auto;
+    }
+
+    /* NAVIGATION */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(7, 17, 31, 0.95);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 70px;
+    }
+
+    .brand {
+      font-size: 24px;
+      font-weight: 800;
+      color: white;
+    }
+
+    .brand span,
+    .accent {
+      color: var(--accent);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      font-size: 13px;
+    }
+
+    .menu {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: white;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    /* SECTIONS */
+
+    section {
+      padding: 74px 0;
+      scroll-margin-top: 80px;
+      background: rgba(4, 15, 29, 0.35);
+      border-bottom: 1px solid rgba(56, 232, 219, 0.08);
+    }
+
+    section:nth-of-type(even) {
+      background: rgba(4, 15, 29, 0.60);
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h2 {
+      font-size: clamp(27px, 4vw, 36px);
+      margin-bottom: 18px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .intro {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    /* HERO */
+
+    .hero {
+      background: linear-gradient(
+        110deg,
+        rgba(3, 13, 28, 0.48),
+        rgba(3, 13, 28, 0.22)
+      );
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      align-items: center;
+      gap: 40px;
+      padding: 85px 0;
+    }
+
+    .eyebrow {
+      color: var(--accent);
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(44px, 6vw, 72px);
+      line-height: 1.1;
+      margin: 12px 0;
+    }
+
+    .hero h2 {
+      font-size: 25px;
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* BUTTONS */
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 11px 18px;
+      border-radius: 8px;
+      border: 1px solid var(--accent);
+      font-size: 14px;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #04242a;
+    }
+
+    .button:hover {
+      text-decoration: none;
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+    }
+
+    /* SOC TERMINAL */
+
+    .terminal {
+      background: rgba(6, 21, 39, 0.89);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 14px 50px rgba(0, 0, 0, 0.35);
+      backdrop-filter: blur(9px);
+    }
+
+    .terminal-title {
+      background: rgba(20, 42, 61, 0.95);
+      padding: 12px 18px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .terminal-body {
+      padding: 22px;
+      font: 13px/1.9 Consolas, Monaco, monospace;
+    }
+
+    .terminal-body p {
+      margin: 0 0 8px;
+    }
+
+    .good {
+      color: #7ee6ae;
+    }
+
+    .cmd {
+      color: var(--accent);
+    }
+
+    /* CARDS */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(6, 21, 39, 0.89);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 25px;
+      min-width: 0;
+      backdrop-filter: blur(9px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
+      transition: 0.2s;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+    }
+
+    .card ul {
+      padding-left: 20px;
+    }
+
+    .card li {
+      margin-bottom: 7px;
+    }
+
+    .pill {
+      display: inline-block;
+      border: 1px solid var(--line);
+      background: #123245;
+      border-radius: 100px;
+      padding: 5px 11px;
+      margin: 4px 5px 4px 0;
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    .status {
+      font-size: 12px;
+      color: #f8d58a;
+    }
+
+    .status.complete {
+      color: #83e9ad;
+    }
+
+    /* ARCHITECTURE */
+
+    .architecture {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      border: 1px solid var(--line);
+      margin-top: 16px;
+    }
+
+    .image-fallback {
+      border: 1px dashed var(--line);
+      border-radius: 10px;
+      padding: 24px;
+      color: var(--muted);
+      margin-top: 15px;
+    }
+
+    /* EXPERIENCE */
+
+    .timeline {
+      border-left: 2px solid var(--accent);
+      padding-left: 24px;
+      margin-left: 7px;
+    }
+
+    .job {
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    .job::before {
+      content: "";
+      position: absolute;
+      left: -32px;
+      top: 8px;
+      width: 12px;
+      height: 12px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .date {
+      color: var(--accent);
+      font-size: 13px;
+    }
+
+    /* CONTACT */
+
+    .contact-card {
+      text-align: center;
+      background: rgba(6, 21, 39, 0.89);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 35px;
+      backdrop-filter: blur(9px);
+    }
+
+    .contact-card .actions {
+      justify-content: center;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 22px;
+      text-align: center;
+      color: var(--muted);
+      background: rgba(4, 13, 26, 0.85);
+      border-top: 1px solid var(--line);
+      font-size: 13px;
+    }
+
+    [hidden] {
+      display: none !important;
+    }
+
+    /* MOBILE */
+
+    @media (max-width: 800px) {
+      body {
+        background-attachment: scroll;
+      }
+
+      .hero-layout,
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        padding: 0 0 16px;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      nav {
+        flex-wrap: wrap;
+        padding: 12px 0;
+      }
+
+      .hero-layout {
+        padding: 60px 0;
+      }
+
+      section {
+        padding: 55px 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .button,
+      .card {
+        transition: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <header>
+    <nav class="wrap" aria-label="Main navigation">
+      <a class="brand" href="#home">NH<span>.</span></a>
+
+      <button
+        class="menu"
+        id="menuButton"
+        type="button"
+        aria-controls="navLinks"
+        aria-expanded="false"
+      >
+        ☰ Menu
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#lab">SOC Home Lab</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <div class="hero" id="home">
+      <div class="wrap hero-layout">
+
+        <div>
+          <div class="eyebrow">
+            Cybersecurity · Security Operations
+          </div>
+
+          <h1>
+            Natnael <span class="accent">Haile</span>
+          </h1>
+
+          <h2>Aspiring SOC Analyst</h2>
+
+          <p class="muted">
+            Information Technology student at George Mason
+            University focused on cybersecurity, security
+            monitoring, and hands-on lab learning.
+          </p>
+
+          <div class="actions">
+            <a class="button primary" href="#lab">
+              Explore SOC Home Lab
+            </a>
+
+            <a class="button" href="#contact">
+              Contact Me
+            </a>
+          </div>
+        </div>
+
+        <div class="terminal"
+          aria-label="Illustrative SOC lab status panel">
+
+          <div class="terminal-title">
+            SOC HOME LAB / PROJECT STATUS
+          </div>
+
+          <div class="terminal-body">
+            <p class="cmd">$ lab-status --summary</p>
+            <p class="good">[OK] Hyper-V virtual machines configured</p>
+            <p class="good">[OK] Isolated virtual network created</p>
+            <p class="good">[OK] Wazuh agent connected</p>
+            <p class="good">[OK] Sysmon events collected</p>
+
+            <p class="cmd">$ detection-testing</p>
+            <p>STATUS: IN PROGRESS</p>
+
+            <p style="color:var(--muted);font-size:11px">
+              Illustrative display, not live security telemetry.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <h2>About <span class="accent">Me</span></h2>
+
+        <p class="muted intro">
+          I'm Natnael Haile, an Information Technology student
+          at George Mason University with a Cybersecurity
+          concentration. I'm building practical experience
+          through a SOC Home Lab, technical coursework,
+          and security-focused projects. My professional
+          background at Amazon has strengthened my
+          leadership, communication, and analytical skills.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="wrap">
+        <h2>Technical <span class="accent">Skills</span></h2>
+
+        <div class="grid">
+          <article class="card">
+            <h3>Security Monitoring</h3>
+            <p>
+              Wazuh SIEM, Sysmon, Windows Event Logs,
+              centralized log collection.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Networking & Security Tools</h3>
+            <p>
+              TCP/IP, Nmap, Wireshark, Nikto,
+              security assessment concepts.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Systems & Virtualization</h3>
+            <p>
+              Windows, Linux, Kali Linux,
+              Microsoft Hyper-V, isolated virtual networks.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Development & Documentation</h3>
+            <p>
+              HTML, SQL, database concepts,
+              technical reporting, security controls
+              documentation.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOC HOME LAB -->
+    <section id="lab">
+      <div class="wrap">
+        <h2>SOC <span class="accent">Home Lab</span></h2>
+
+        <p class="muted intro">
+          A three-VM security monitoring environment built
+          using Hyper-V, Windows 11, Kali Linux, Sysmon,
+          and Wazuh. The lab is designed for learning
+          endpoint telemetry collection, detection testing,
+          and security investigation workflows.
+        </p>
+
+        <div class="grid">
+
+          <article class="card">
+            <h3>Lab Environment</h3>
+
+            <ul>
+              <li>
+                <strong>WIN-01:</strong>
+                Windows 11 endpoint — 10.10.10.10
+              </li>
+              <li>
+                <strong>SIEM-01:</strong>
+                Wazuh server — 10.10.10.20
+              </li>
+              <li>
+                <strong>KALI-01:</strong>
+                Kali Linux — 10.10.10.30
+              </li>
+              <li>
+                <strong>Network:</strong>
+                SOC-LAB, 10.10.10.0/24
+              </li>
+            </ul>
+
+            <a
+              href="https://github.com/Natnael-Haile/Wazuh-SOC-Home-Lab"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Lab Repository →
+            </a>
+          </article>
+
+          <article class="card">
+            <h3>Implementation Progress</h3>
+
+            <p>
+              <span class="status complete">✓ Completed</span>
+              — Hyper-V environment and isolated network
+            </p>
+
+            <p>
+              <span class="status complete">✓ Completed</span>
+              — Sysmon and Wazuh agent setup
+            </p>
+
+            <p>
+              <span class="status complete">✓ Completed</span>
+              — Windows event collection
+            </p>
+
+            <p>
+              <span class="status">◷ In progress</span>
+              — Detection testing
+            </p>
+
+            <p>
+              <span class="status">○ Planned</span>
+              — Documented investigations and reports
+            </p>
+          </article>
+
+        </div>
+
+        <!-- ARCHITECTURE -->
+        <article class="card" style="margin-top:20px">
+          <h3>SOC Home Lab Architecture</h3>
+
+          <p>
+            The diagram illustrates the isolated Hyper-V
+            environment and the relationships between
+            the Windows endpoint, Kali Linux testing machine,
+            and Wazuh SIEM server.
+          </p>
+
+          <img
+            class="architecture"
+            src="assets/soc-lab-architecture.png"
+            alt="SOC Home Lab architecture diagram"
+            id="architectureImage"
+          >
+
+          <p
+            class="image-fallback"
+            id="architectureFallback"
+            hidden
+          >
+            To display your diagram, upload the image to
+            assets/soc-lab-architecture.png.
+          </p>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="wrap">
+        <h2>Other <span class="accent">Projects</span></h2>
+
+        <div class="grid">
+
+          <article class="card">
+            <h3>Security Controls Assessment</h3>
+
+            <p>
+              Academic work evaluating security controls
+              and mitigation recommendations using
+              CIS Benchmarks, OWASP Top 10,
+              and STIG guidance.
+            </p>
+
+            <span class="pill">Security Assessment</span>
+            <span class="pill">Documentation</span>
+          </article>
+
+          <article class="card">
+            <h3>Yoga Class Registration System</h3>
+
+            <p>
+              Database-driven academic application
+              using a LAMP stack and MySQL for
+              managing class registration workflows.
+            </p>
+
+            <span class="pill">MySQL</span>
+            <span class="pill">LAMP</span>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="wrap">
+        <h2>Professional <span class="accent">Experience</span></h2>
+
+        <div class="timeline">
+
+          <div class="job">
+            <div class="date">May 2024 – Present</div>
+            <h3>Area Manager — Amazon</h3>
+
+            <p class="muted">
+              Lead 30+ associates, monitor operational
+              performance, and support process improvements.
+            </p>
+          </div>
+
+          <div class="job">
+            <div class="date">
+              September 2022 – September 2024
+            </div>
+
+            <h3>Process Assistant — Amazon</h3>
+
+            <p class="muted">
+              Supported workflow coordination,
+              daily operations, and team performance.
+            </p>
+          </div>
+
+          <div class="job">
+            <div class="date">
+              March 2020 – September 2022
+            </div>
+
+            <h3>Associate — Amazon</h3>
+
+            <p class="muted">
+              Built experience in operational execution,
+              teamwork, and process standards.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="wrap">
+        <h2>Education & <span class="accent">Training</span></h2>
+
+        <div class="grid">
+
+          <article class="card">
+            <h3>George Mason University</h3>
+
+            <p>
+              B.S. Information Technology<br>
+              Concentration: Cybersecurity<br>
+              Expected graduation: December 2026<br>
+              GPA: 3.76
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>Certification Progress</h3>
+
+            <p>CompTIA Security+ — In Progress</p>
+
+            <p>
+              Hands-on learning through security
+              monitoring tools, virtual machines,
+              and coursework.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+
+        <div class="contact-card">
+          <h2>Let's <span class="accent">Connect</span></h2>
+
+          <p class="muted">
+            I'm interested in SOC Analyst
+            and cybersecurity opportunities.
+          </p>
+
+          <div class="actions">
+
+            <a
+              class="button primary"
+              href="https://github.com/Natnael-Haile"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              GitHub
+            </a>
+
+            <a
+              class="button"
+              href="mailto:natiman1018@gmail.com"
+            >
+              Email Me
+            </a>
+
+            <!-- Add your actual LinkedIn URL to enable -->
+            <a
+              class="button"
+              href="#"
+              id="linkedinLink"
+              hidden
+            >
+              LinkedIn
+            </a>
+
+            <!-- Upload resume.pdf to enable -->
+            <a
+              class="button"
+              href="resume.pdf"
+              id="resumeLink"
+              hidden
+            >
+              Download Resume
+            </a>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    © <span id="year"></span> Natnael Haile ·
+    Cybersecurity Portfolio
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    // Update copyright year
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    // Mobile menu
+    const menuButton =
+      document.getElementById("menuButton");
+
+    const navLinks =
+      document.getElementById("navLinks");
+
+    menuButton.addEventListener("click", () => {
+      const expanded =
+        navLinks.classList.toggle("open");
+
+      menuButton.setAttribute(
+        "aria-expanded",
+        String(expanded)
+      );
+    });
+
+    // Close mobile menu after navigation
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+      });
+    });
+
+    // Architecture image fallback
+    document
+      .getElementById("architectureImage")
+      .addEventListener("error", function () {
+        this.hidden = true;
+
+        document.getElementById(
+          "architectureFallback"
+        ).hidden = false;
+      });
+  </script>
+
+</body>
+</html>
+
