@@ -1,1578 +1,538 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Natnael Haile — aspiring SOC Analyst. Explore my SOC Home Lab, cybersecurity projects, and experience.">
-  <title>Natnael Haile | Cybersecurity Portfolio</title>
-
-  <style>
-    :root {
-      --bg: #07111f;
-      --panel: #102338;
-      --panel2: #0b1a2b;
-      --text: #f0f7ff;
-      --muted: #adc0d1;
-      --accent: #38e8db;
-      --line: #25445a;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-   body {
-  margin: 0;
-  color: #eaf6ff;
-  font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.65;
-
-  background-color: #06101d;
-  background-image:
-    linear-gradient(
-      rgba(3, 11, 23, 0.55),
-      rgba(3, 14, 28, 0.55)
-    ),
-    url("./assets/soc-background.png");
-
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-}
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .wrap {
-      width: min(1100px, 92%);
-      margin: auto;
-    }
-
-    /* NAVIGATION */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      background: rgba(7, 17, 31, 0.95);
-      border-bottom: 1px solid var(--line);
-      backdrop-filter: blur(10px);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      min-height: 70px;
-    }
-
-    .brand {
-      font-size: 24px;
-      font-weight: 800;
-      color: white;
-    }
-
-    .brand span,
-    .accent {
-      color: var(--accent);
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 16px;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: var(--text);
-      font-size: 13px;
-    }
-
-    .menu {
-      display: none;
-      background: transparent;
-      border: 1px solid var(--line);
-      color: white;
-      padding: 8px 12px;
-      border-radius: 8px;
-      cursor: pointer;
-    }
-
-    /* SECTIONS */
-
-    section {
-      padding: 74px 0;
-      scroll-margin-top: 80px;
-      background: rgba(4, 15, 29, 0.35);
-      border-bottom: 1px solid rgba(56, 232, 219, 0.08);
-    }
-
-    section:nth-of-type(even) {
-      background: rgba(4, 15, 29, 0.60);
-    }
-
-    h1, h2, h3, p {
-      margin-top: 0;
-    }
-
-    h2 {
-      font-size: clamp(27px, 4vw, 36px);
-      margin-bottom: 18px;
-    }
-
-    .muted {
-      color: var(--muted);
-    }
-
-    .intro {
-      max-width: 760px;
-      margin-bottom: 28px;
-    }
-
-    /* HERO */
-
-    .hero {
-      background: linear-gradient(
-        110deg,
-        rgba(3, 13, 28, 0.48),
-        rgba(3, 13, 28, 0.22)
-      );
-    }
-
-    .hero-layout {
-      display: grid;
-      grid-template-columns: 1.2fr 1fr;
-      align-items: center;
-      gap: 40px;
-      padding: 85px 0;
-    }
-
-    .eyebrow {
-      color: var(--accent);
-      font-size: 12px;
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-weight: bold;
-    }
-
-    h1 {
-      font-size: clamp(44px, 6vw, 72px);
-      line-height: 1.1;
-      margin: 12px 0;
-    }
-
-    .hero h2 {
-      font-size: 25px;
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    /* BUTTONS */
-
-    .actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 25px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 11px 18px;
-      border-radius: 8px;
-      border: 1px solid var(--accent);
-      font-size: 14px;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-
-    .button.primary {
-      background: var(--accent);
-      color: #04242a;
-    }
-
-    .button:hover {
-      text-decoration: none;
-      filter: brightness(1.1);
-      transform: translateY(-2px);
-    }
-
-    /* SOC TERMINAL */
-
-    .terminal {
-      background: rgba(6, 21, 39, 0.89);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 14px 50px rgba(0, 0, 0, 0.35);
-      backdrop-filter: blur(9px);
-    }
-
-    .terminal-title {
-      background: rgba(20, 42, 61, 0.95);
-      padding: 12px 18px;
-      font-size: 12px;
-      color: var(--muted);
-    }
-
-    .terminal-body {
-      padding: 22px;
-      font: 13px/1.9 Consolas, Monaco, monospace;
-    }
-
-    .terminal-body p {
-      margin: 0 0 8px;
-    }
-
-    .good {
-      color: #7ee6ae;
-    }
-
-    .cmd {
-      color: var(--accent);
-    }
-
-    /* CARDS */
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .card {
-      background: rgba(6, 21, 39, 0.89);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 25px;
-      min-width: 0;
-      backdrop-filter: blur(9px);
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.22);
-      transition: 0.2s;
-    }
-
-    .card:hover {
-      border-color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    .card h3 {
-      margin-bottom: 12px;
-    }
-
-    .card p,
-    .card li {
-      color: var(--muted);
-    }
-
-    .card ul {
-      padding-left: 20px;
-    }
-
-    .card li {
-      margin-bottom: 7px;
-    }
-
-    .pill {
-      display: inline-block;
-      border: 1px solid var(--line);
-      background: #123245;
-      border-radius: 100px;
-      padding: 5px 11px;
-      margin: 4px 5px 4px 0;
-      font-size: 12px;
-      color: var(--accent);
-    }
-
-    .status {
-      font-size: 12px;
-      color: #f8d58a;
-    }
-
-    .status.complete {
-      color: #83e9ad;
-    }
-
-    /* ARCHITECTURE */
-
-    .architecture {
-      display: block;
-      width: 100%;
-      height: auto;
-      border-radius: 10px;
-      border: 1px solid var(--line);
-      margin-top: 16px;
-    }
-
-    .image-fallback {
-      border: 1px dashed var(--line);
-      border-radius: 10px;
-      padding: 24px;
-      color: var(--muted);
-      margin-top: 15px;
-    }
-
-    /* EXPERIENCE */
-
-    .timeline {
-      border-left: 2px solid var(--accent);
-      padding-left: 24px;
-      margin-left: 7px;
-    }
-
-    .job {
-      margin-bottom: 30px;
-      position: relative;
-    }
-
-    .job::before {
-      content: "";
-      position: absolute;
-      left: -32px;
-      top: 8px;
-      width: 12px;
-      height: 12px;
-      background: var(--accent);
-      border-radius: 50%;
-    }
-
-    .date {
-      color: var(--accent);
-      font-size: 13px;
-    }
-
-    /* CONTACT */
-
-    .contact-card {
-      text-align: center;
-      background: rgba(6, 21, 39, 0.89);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 35px;
-      backdrop-filter: blur(9px);
-    }
-
-    .contact-card .actions {
-      justify-content: center;
-    }
-
-    /* FOOTER */
-
-    footer {
-      padding: 22px;
-      text-align: center;
-      color: var(--muted);
-      background: rgba(4, 13, 26, 0.85);
-      border-top: 1px solid var(--line);
-      font-size: 13px;
-    }
-
-    [hidden] {
-      display: none !important;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 800px) {
-      body {
-        background-attachment: scroll;
-      }
-
-      .hero-layout,
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .menu {
-        display: block;
-      }
-
-      .nav-links {
-        display: none;
-        width: 100%;
-        flex-direction: column;
-        padding: 0 0 16px;
-      }
-
-      .nav-links.open {
-        display: flex;
-      }
-
-      nav {
-        flex-wrap: wrap;
-        padding: 12px 0;
-      }
-
-      .hero-layout {
-        padding: 60px 0;
-      }
-
-      section {
-        padding: 55px 0;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      .button,
-      .card {
-        transition: none;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- NAVIGATION -->
-  <header>
-    <nav class="wrap" aria-label="Main navigation">
-      <a class="brand" href="#home">NH<span>.</span></a>
-
-      <button
-        class="menu"
-        id="menuButton"
-        type="button"
-        aria-controls="navLinks"
-        aria-expanded="false"
-      >
-        ☰ Menu
-      </button>
-
-      <div class="nav-links" id="navLinks">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#lab">SOC Home Lab</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-
-    <!-- HERO -->
-    <div class="hero" id="home">
-      <div class="wrap hero-layout">
-
-        <div>
-          <div class="eyebrow">
-            Cybersecurity · Security Operations
-          </div>
-
-          <h1>
-            Natnael <span class="accent">Haile</span>
-          </h1>
-
-          <h2>Aspiring SOC Analyst</h2>
-
-          <p class="muted">
-            Information Technology student at George Mason
-            University focused on cybersecurity, security
-            monitoring, and hands-on lab learning.
-          </p>
-
-          <div class="actions">
-            <a class="button primary" href="#lab">
-              Explore SOC Home Lab
-            </a>
-
-            <a class="button" href="#contact">
-              Contact Me
-            </a>
-          </div>
-        </div>
-
-        <div class="terminal"
-          aria-label="Illustrative SOC lab status panel">
-
-          <div class="terminal-title">
-            SOC HOME LAB / PROJECT STATUS
-          </div>
-
-          <div class="terminal-body">
-            <p class="cmd">$ lab-status --summary</p>
-            <p class="good">[OK] Hyper-V virtual machines configured</p>
-            <p class="good">[OK] Isolated virtual network created</p>
-            <p class="good">[OK] Wazuh agent connected</p>
-            <p class="good">[OK] Sysmon events collected</p>
-
-            <p class="cmd">$ detection-testing</p>
-            <p>STATUS: IN PROGRESS</p>
-
-            <p style="color:var(--muted);font-size:11px">
-              Illustrative display, not live security telemetry.
-            </p>
-          </div>
-        </div>
+<!-- PROJECTS SECTION — CLEAN PROFESSIONAL DESIGN -->
+
+<section id="projects" class="clean-projects">
+  <div class="clean-projects-container">
+
+    <!-- MAIN PROJECT LIST -->
+    <div id="project-home" class="project-view">
+      <h2>My Projects</h2>
+      <p class="project-intro">Choose a project to explore.</p>
+
+      <div class="clean-project-list">
+
+        <button class="clean-project-card" data-project="soc" type="button">
+          <span class="clean-project-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="m9 12 2 2 4-4"/>
+            </svg>
+          </span>
+          <span class="clean-project-content">
+            <strong>SOC Home Lab</strong>
+            <span class="clean-description">
+              Security monitoring, log analysis, alert triage,
+              and AI-assisted SOC investigations.
+            </span>
+            <span class="clean-project-link">View project →</span>
+          </span>
+        </button>
+
+        <button class="clean-project-card" data-project="vulnerability" type="button">
+          <span class="clean-project-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M3 16v3a2 2 0 0 0 2 2h3M21 16v3a2 2 0 0 1-2 2h-3"/>
+              <circle cx="11" cy="11" r="4"/>
+              <path d="m14 14 4 4"/>
+            </svg>
+          </span>
+          <span class="clean-project-content">
+            <strong>Vulnerability Assessment</strong>
+            <span class="clean-description">
+              Vulnerability discovery, risk assessment,
+              and remediation recommendations.
+            </span>
+            <span class="clean-project-link">View project →</span>
+          </span>
+        </button>
+
+        <button class="clean-project-card" data-project="phishing" type="button">
+          <span class="clean-project-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m2 6 10 7 10-7"/>
+              <path d="M19 15v3M19 21h.01"/>
+            </svg>
+          </span>
+          <span class="clean-project-content">
+            <strong>Phishing Analysis</strong>
+            <span class="clean-description">
+              Suspicious email investigation, header analysis,
+              and malicious URL examination.
+            </span>
+            <span class="clean-project-link">View project →</span>
+          </span>
+        </button>
+
+        <button class="clean-project-card" data-project="controls" type="button">
+          <span class="clean-project-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="5" y="3" width="14" height="18" rx="2"/>
+              <path d="M9 3h6M9 10h6M9 14h6M9 18h4"/>
+            </svg>
+          </span>
+          <span class="clean-project-content">
+            <strong>Security Controls Assessment</strong>
+            <span class="clean-description">
+              Security controls evaluation using CIS Benchmarks,
+              STIG, and OWASP guidance.
+            </span>
+            <span class="clean-project-link">View project →</span>
+          </span>
+        </button>
+
+        <button class="clean-project-card" data-project="yoga" type="button">
+          <span class="clean-project-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <ellipse cx="12" cy="5" rx="8" ry="3"/>
+              <path d="M4 5v7c0 2 16 2 16 0V5M4 12v7c0 3 16 3 16 0v-7"/>
+            </svg>
+          </span>
+          <span class="clean-project-content">
+            <strong>Yoga Class Registration System</strong>
+            <span class="clean-description">
+              Database-driven registration and class management
+              using MySQL.
+            </span>
+            <span class="clean-project-link">View project →</span>
+          </span>
+        </button>
 
       </div>
     </div>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="wrap">
-        <h2>About <span class="accent">Me</span></h2>
+    <!-- SOC HOME LAB SUBPROJECTS -->
+    <div id="project-soc" class="project-view" hidden>
+      <button class="clean-back" data-back="home" type="button">
+        ← Back to Projects
+      </button>
 
-        <p class="muted intro">
-          I'm Natnael Haile, an Information Technology student
-          at George Mason University with a Cybersecurity
-          concentration. I'm building practical experience
-          through a SOC Home Lab, technical coursework,
-          and security-focused projects. My professional
-          background at Amazon has strengthened my
-          leadership, communication, and analytical skills.
+      <h2>SOC Home Lab</h2>
+      <p class="project-intro">
+        Explore my security monitoring and investigation work.
+      </p>
+
+      <div class="clean-lab-info">
+        <strong>My SOC Lab Environment</strong>
+        <p>
+          Hyper-V isolated network (10.10.10.0/24) with
+          Windows 11, Sysmon, Wazuh SIEM, and Kali Linux.
+          Detection testing is in progress.
+        </p>
+        <a href="https://github.com/Natnael-Haile/Wazuh-SOC-Home-Lab"
+           target="_blank" rel="noopener noreferrer">
+          View Lab Documentation ↗
+        </a>
+      </div>
+
+      <h3 class="clean-subtitle">SOC Investigations</h3>
+
+      <div class="clean-project-list">
+
+        <button class="clean-project-card" data-project="logs" type="button">
+          <span class="clean-project-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 3h7l5 5v13H7zM14 3v5h5M10 12h6M10 16h6"/>
+            </svg>
+          </span>
+          <span class="clean-project-content">
+            <strong>Log Analysis</strong>
+            <span class="clean-description">
+              Windows Event Logs, Sysmon telemetry,
+              and Wazuh event investigation.
+            </span>
+            <span class="clean-project-link">View investigation →</span>
+          </span>
+        </button>
+
+        <button class="clean-project-card" data-project="triage" type="button">
+          <span class="clean-project-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              <path d="M12 7v6M12 17h.01"/>
+            </svg>
+          </span>
+          <span class="clean-project-content">
+            <strong>SOC L1 Triage</strong>
+            <span class="clean-description">
+              Security alert review, validation,
+              prioritization, and escalation decisions.
+            </span>
+            <span class="clean-project-link">View investigation →</span>
+          </span>
+        </button>
+
+        <button class="clean-project-card" data-project="ai" type="button">
+          <span class="clean-project-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="5" y="5" width="14" height="14" rx="3"/>
+              <path d="M9 9h6v6H9zM9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/>
+            </svg>
+          </span>
+          <span class="clean-project-content">
+            <strong>AI SOC Analysis</strong>
+            <span class="clean-description">
+              AI-assisted security analysis with human
+              verification of investigation findings.
+            </span>
+            <span class="clean-project-link">View investigation →</span>
+          </span>
+        </button>
+
+      </div>
+    </div>
+
+    <!-- INDIVIDUAL PROJECT DETAILS -->
+    <div id="project-details" class="project-view" hidden>
+      <button class="clean-back" id="project-detail-back" type="button">
+        ← Back
+      </button>
+
+      <h2 id="clean-detail-title"></h2>
+      <p class="project-intro" id="clean-detail-description"></p>
+
+      <div class="clean-detail-card">
+        <h3>Overview</h3>
+        <p id="clean-detail-overview"></p>
+      </div>
+
+      <div class="clean-detail-card">
+        <h3>Tools & Technologies</h3>
+        <p id="clean-detail-tools"></p>
+      </div>
+
+      <div class="clean-detail-card">
+        <h3>Documentation & Evidence</h3>
+        <p>
+          Investigation screenshots, methodology, findings,
+          and recommendations will be added here as
+          the project is documented.
         </p>
       </div>
-    </section>
+    </div>
 
-    <!-- SKILLS -->
-    <section id="skills">
-      <div class="wrap">
-        <h2>Technical <span class="accent">Skills</span></h2>
-
-        <div class="grid">
-          <article class="card">
-            <h3>Security Monitoring</h3>
-            <p>
-              Wazuh SIEM, Sysmon, Windows Event Logs,
-              centralized log collection.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Networking & Security Tools</h3>
-            <p>
-              TCP/IP, Nmap, Wireshark, Nikto,
-              security assessment concepts.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Systems & Virtualization</h3>
-            <p>
-              Windows, Linux, Kali Linux,
-              Microsoft Hyper-V, isolated virtual networks.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Development & Documentation</h3>
-            <p>
-              HTML, SQL, database concepts,
-              technical reporting, security controls
-              documentation.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- SOC HOME LAB -->
-    <section id="lab">
-      <div class="wrap">
-        <h2>SOC <span class="accent">Home Lab</span></h2>
-
-        <p class="muted intro">
-          A three-VM security monitoring environment built
-          using Hyper-V, Windows 11, Kali Linux, Sysmon,
-          and Wazuh. The lab is designed for learning
-          endpoint telemetry collection, detection testing,
-          and security investigation workflows.
-        </p>
-
-        <div class="grid">
-
-          <article class="card">
-            <h3>Lab Environment</h3>
-
-            <ul>
-              <li>
-                <strong>WIN-01:</strong>
-                Windows 11 endpoint — 10.10.10.10
-              </li>
-              <li>
-                <strong>SIEM-01:</strong>
-                Wazuh server — 10.10.10.20
-              </li>
-              <li>
-                <strong>KALI-01:</strong>
-                Kali Linux — 10.10.10.30
-              </li>
-              <li>
-                <strong>Network:</strong>
-                SOC-LAB, 10.10.10.0/24
-              </li>
-            </ul>
-
-            <a
-              href="https://github.com/Natnael-Haile/Wazuh-SOC-Home-Lab"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              View Lab Repository →
-            </a>
-          </article>
-
-          <article class="card">
-            <h3>Implementation Progress</h3>
-
-            <p>
-              <span class="status complete">✓ Completed</span>
-              — Hyper-V environment and isolated network
-            </p>
-
-            <p>
-              <span class="status complete">✓ Completed</span>
-              — Sysmon and Wazuh agent setup
-            </p>
-
-            <p>
-              <span class="status complete">✓ Completed</span>
-              — Windows event collection
-            </p>
-
-            <p>
-              <span class="status">◷ In progress</span>
-              — Detection testing
-            </p>
-
-            <p>
-              <span class="status">○ Planned</span>
-              — Documented investigations and reports
-            </p>
-          </article>
-
-        </div>
-
-        <!-- ARCHITECTURE -->
-        <article class="card" style="margin-top:20px">
-          <h3>SOC Home Lab Architecture</h3>
-
-          <p>
-            The diagram illustrates the isolated Hyper-V
-            environment and the relationships between
-            the Windows endpoint, Kali Linux testing machine,
-            and Wazuh SIEM server.
-          </p>
-
-          <img
-            class="architecture"
-            src="assets/soc-lab-architecture.png"
-            alt="SOC Home Lab architecture diagram"
-            id="architectureImage"
-          >
-
-          <p
-            class="image-fallback"
-            id="architectureFallback"
-            hidden
-          >
-            To display your diagram, upload the image to
-            assets/soc-lab-architecture.png.
-          </p>
-        </article>
-
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section id="projects">
-      <div class="wrap">
-        <h2>Other <span class="accent">Projects</span></h2>
-
-        <div class="grid">
-
-          <article class="card">
-            <h3>Security Controls Assessment</h3>
-
-            <p>
-              Academic work evaluating security controls
-              and mitigation recommendations using
-              CIS Benchmarks, OWASP Top 10,
-              and STIG guidance.
-            </p>
-
-            <span class="pill">Security Assessment</span>
-            <span class="pill">Documentation</span>
-          </article>
-
-          <article class="card">
-            <h3>Yoga Class Registration System</h3>
-
-            <p>
-              Database-driven academic application
-              using a LAMP stack and MySQL for
-              managing class registration workflows.
-            </p>
-
-            <span class="pill">MySQL</span>
-            <span class="pill">LAMP</span>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE -->
-    <section id="experience">
-      <div class="wrap">
-        <h2>Professional <span class="accent">Experience</span></h2>
-
-        <div class="timeline">
-
-          <div class="job">
-            <div class="date">May 2024 – Present</div>
-            <h3>Area Manager — Amazon</h3>
-
-            <p class="muted">
-              Lead 30+ associates, monitor operational
-              performance, and support process improvements.
-            </p>
-          </div>
-
-          <div class="job">
-            <div class="date">
-              September 2022 – September 2024
-            </div>
-
-            <h3>Process Assistant — Amazon</h3>
-
-            <p class="muted">
-              Supported workflow coordination,
-              daily operations, and team performance.
-            </p>
-          </div>
-
-          <div class="job">
-            <div class="date">
-              March 2020 – September 2022
-            </div>
-
-            <h3>Associate — Amazon</h3>
-
-            <p class="muted">
-              Built experience in operational execution,
-              teamwork, and process standards.
-            </p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- EDUCATION -->
-    <section id="education">
-      <div class="wrap">
-        <h2>Education & <span class="accent">Training</span></h2>
-
-        <div class="grid">
-
-          <article class="card">
-            <h3>George Mason University</h3>
-
-            <p>
-              B.S. Information Technology<br>
-              Concentration: Cybersecurity<br>
-              Expected graduation: December 2026<br>
-              GPA: 3.76
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Certification Progress</h3>
-
-            <p>CompTIA Security+ — In Progress</p>
-
-            <p>
-              Hands-on learning through security
-              monitoring tools, virtual machines,
-              and coursework.
-            </p>
-          </article>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="wrap">
-
-        <div class="contact-card">
-          <h2>Let's <span class="accent">Connect</span></h2>
-
-          <p class="muted">
-            I'm interested in SOC Analyst
-            and cybersecurity opportunities.
-          </p>
-
-          <div class="actions">
-
-            <a
-              class="button primary"
-              href="https://github.com/Natnael-Haile"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              GitHub
-            </a>
-
-            <a
-              class="button"
-              href="mailto:natiman1018@gmail.com"
-            >
-              Email Me
-            </a>
-
-            <!-- Add your actual LinkedIn URL to enable -->
-            <a
-              class="button"
-              href="#"
-              id="linkedinLink"
-              hidden
-            >
-              LinkedIn
-            </a>
-
-            <!-- Upload resume.pdf to enable -->
-            <a
-              class="button"
-              href="resume.pdf"
-              id="resumeLink"
-              hidden
-            >
-              Download Resume
-            </a>
-
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <!-- FOOTER -->
-  <footer>
-    © <span id="year"></span> Natnael Haile ·
-    Cybersecurity Portfolio
-  </footer>
-
-  <!-- JAVASCRIPT -->
-  <script>
-    // Update copyright year
-    document.getElementById("year").textContent =
-      new Date().getFullYear();
-
-    // Mobile menu
-    const menuButton =
-      document.getElementById("menuButton");
-
-    const navLinks =
-      document.getElementById("navLinks");
-
-    menuButton.addEventListener("click", () => {
-      const expanded =
-        navLinks.classList.toggle("open");
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        String(expanded)
-      );
-    });
-
-    // Close mobile menu after navigation
-    navLinks.querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        navLinks.classList.remove("open");
-        menuButton.setAttribute(
-          "aria-expanded",
-          "false"
-        );
-      });
-    });
-
-    // Architecture image fallback
-    document
-      .getElementById("architectureImage")
-      .addEventListener("error", function () {
-        this.hidden = true;
-
-        document.getElementById(
-          "architectureFallback"
-        ).hidden = false;
-      });
-  </script>
-
-</body>
-</html>
-
-<!-- =====================================================
-     CYBERSECURITY PORTFOLIO UPGRADE
-     Paste this entire block directly ABOVE </body>.
-     Preserves existing page content and background.
-===================================================== -->
+  </div>
+</section>
 
 <style>
-  :root {
-    --soc-navy: #071a2d;
-    --soc-panel: #10283e;
-    --soc-cyan: #36d4e7;
-    --soc-text: #eaf5fc;
-    --soc-muted: #adc3d3;
-    --soc-border: rgba(103, 201, 229, .24);
+  /* Screenshot-matched Projects section */
+  #projects.clean-projects {
+    background: #f0f5f9;
+    padding: 45px 20px 65px;
+    color: #19364b;
+    scroll-margin-top: 90px;
   }
 
-  html { scroll-behavior: smooth; }
-  section[id] { scroll-margin-top: 95px; }
-
-  /* Interactive dashboard */
-  #soc-dashboard {
-    max-width: 1160px;
-    margin: 55px auto;
-    padding: 0 20px;
-    color: var(--soc-text);
-    font-family: inherit;
+  #projects .clean-projects-container {
+    max-width: 1120px;
+    margin: 0 auto;
   }
 
-  #soc-dashboard *,
-  #soc-dashboard *::before,
-  #soc-dashboard *::after {
-    box-sizing: border-box;
+  #projects .project-view[hidden] {
+    display: none !important;
   }
 
-  .soc-shell {
-    background: rgba(7, 26, 45, .96);
-    border: 1px solid var(--soc-border);
-    border-radius: 20px;
-    padding: clamp(20px, 4vw, 38px);
-    box-shadow: 0 22px 65px rgba(0, 18, 38, .25);
-  }
-
-  .soc-topline {
-    color: var(--soc-cyan);
-    font-size: .78rem;
+  #projects h2 {
+    font-size: clamp(27px, 3vw, 34px);
+    color: #19364b;
     font-weight: 700;
-    letter-spacing: .16em;
-    text-transform: uppercase;
+    margin: 0 0 18px;
   }
 
-  .soc-heading {
-    font-size: clamp(1.65rem, 3vw, 2.4rem);
-    margin: 10px 0;
-    color: #fff;
-    line-height: 1.2;
-  }
-
-  .soc-description {
-    color: var(--soc-muted);
-    line-height: 1.7;
-    max-width: 750px;
-  }
-
-  .soc-status {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 8px 13px;
-    border-radius: 30px;
-    background: rgba(54, 212, 231, .10);
-    color: #8df1f7;
-    font-size: .82rem;
-    margin: 12px 0 22px;
-  }
-
-  .soc-dot {
-    width: 8px;
-    height: 8px;
-    background: #4de3b0;
-    border-radius: 50%;
-    box-shadow: 0 0 0 4px rgba(77, 227, 176, .12);
-  }
-
-  .soc-stats,
-  .soc-machines {
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 15px;
-    margin-top: 20px;
-  }
-
-  .soc-stat,
-  .soc-machine,
-  .soc-detail {
-    background: rgba(16, 40, 62, .94);
-    border: 1px solid var(--soc-border);
-    border-radius: 14px;
-    padding: 20px;
-  }
-
-  .soc-stat strong {
-    display: block;
-    font-size: 1.8rem;
-    color: #fff;
-    margin-bottom: 4px;
-  }
-
-  .soc-stat span,
-  .soc-machine p {
-    color: var(--soc-muted);
-    font-size: .9rem;
+  #projects .project-intro {
+    color: #607b90;
+    font-size: 18px;
     line-height: 1.6;
+    margin: 0 0 20px;
   }
 
-  .soc-subheading {
-    margin: 32px 0 14px;
-    color: #fff;
-    font-size: 1.2rem;
+  #projects .clean-project-list {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
   }
 
-  .soc-machine {
-    cursor: pointer;
+  #projects .clean-project-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    width: 100%;
+    padding: 20px 18px;
+    background: #fff;
+    border: 1px solid #d5e3ec;
+    border-radius: 24px;
     text-align: left;
     font: inherit;
-    color: var(--soc-text);
+    color: inherit;
+    cursor: pointer;
     transition: transform .2s ease,
-                border-color .2s ease,
-                background .2s ease;
+                box-shadow .2s ease,
+                border-color .2s ease;
   }
 
-  .soc-machine:hover,
-  .soc-machine:focus-visible {
-    transform: translateY(-4px);
-    border-color: var(--soc-cyan);
-    outline: none;
+  #projects .clean-project-card:hover,
+  #projects .clean-project-card:focus-visible {
+    transform: translateY(-3px);
+    border-color: #92cad8;
+    box-shadow: 0 10px 24px rgba(15,49,74,.08);
+    outline-offset: 3px;
   }
 
-  .soc-machine[aria-pressed="true"] {
-    border-color: var(--soc-cyan);
-    background: #16374f;
-  }
-
-  .soc-machine-title {
-    display: block;
-    color: #fff;
-    font-size: 1.08rem;
-    font-weight: 700;
-  }
-
-  .soc-machine-ip {
-    display: block;
-    color: var(--soc-cyan);
-    font-family: monospace;
-    font-size: .9rem;
-    margin: 8px 0;
-  }
-
-  .soc-detail {
-    margin-top: 16px;
-    min-height: 95px;
-    line-height: 1.7;
-    color: var(--soc-muted);
-  }
-
-  .soc-detail strong { color: #fff; }
-
-  .soc-progress {
-    display: grid;
-    gap: 14px;
-    margin-top: 15px;
-  }
-
-  .soc-progress-item {
+  #projects .clean-project-icon {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 15px;
-    padding: 13px 16px;
-    border-radius: 10px;
-    background: rgba(255,255,255,.045);
+    justify-content: center;
+    flex-shrink: 0;
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    background: #e3f5f8;
+    color: #0086a4;
   }
 
-  .soc-progress-item span:first-child {
-    color: #eaf5fc;
+  #projects .clean-project-icon svg {
+    width: 29px;
+    height: 29px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 
-  .soc-complete {
-    color: #71e6b6;
-    font-size: .84rem;
+  #projects .clean-project-content {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding-top: 3px;
+  }
+
+  #projects .clean-project-content strong {
+    color: #19364b;
+    font-size: 22px;
+    line-height: 1.3;
     font-weight: 700;
-    white-space: nowrap;
   }
 
-  .soc-ongoing {
-    color: #ffd28a;
-    font-size: .84rem;
-    font-weight: 700;
-    white-space: nowrap;
+  #projects .clean-description {
+    color: #607b90;
+    font-size: 18px;
+    line-height: 1.5;
   }
 
-  .soc-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    margin-top: 25px;
-    padding: 12px 18px;
-    border-radius: 9px;
-    background: var(--soc-cyan);
-    color: #062136 !important;
-    text-decoration: none;
-    font-weight: 700;
-    transition: transform .2s ease, filter .2s ease;
+  #projects .clean-project-link {
+    color: #007f9e;
+    font-size: 17px;
+    font-weight: 500;
   }
 
-  .soc-link:hover {
-    transform: translateY(-2px);
-    filter: brightness(1.08);
+  #projects .clean-back {
+    background: transparent;
+    border: none;
+    color: #007f9e;
+    font: inherit;
+    font-size: 16px;
+    cursor: pointer;
+    margin-bottom: 24px;
+    padding: 8px 0;
   }
 
-  /* Professional effects on existing cards */
-  .project-card,
-  .skill-card,
-  .experience-card,
-  .card {
-    transition: transform .22s ease,
-                box-shadow .22s ease;
-  }
-
-  .project-card:hover,
-  .skill-card:hover,
-  .experience-card:hover,
-  .card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 15px 35px rgba(0, 20, 45, .15);
-  }
-
-  /* Active navigation */
-  nav a.soc-active,
-  header nav a.soc-active {
-    color: #36d4e7 !important;
+  #projects .clean-back:hover {
     text-decoration: underline;
-    text-decoration-thickness: 2px;
-    text-underline-offset: 7px;
   }
 
-  /* Mobile menu */
-  #soc-menu-toggle {
-    display: none;
-    border: 1px solid rgba(103,201,229,.5);
-    background: #10283e;
-    color: #fff;
-    padding: 9px 13px;
-    border-radius: 9px;
-    font-size: 1.2rem;
-    cursor: pointer;
+  #projects .clean-lab-info,
+  #projects .clean-detail-card {
+    background: #fff;
+    border: 1px solid #d5e3ec;
+    border-radius: 20px;
+    padding: 25px;
+    margin: 18px 0;
   }
 
-  #soc-back-top {
-    position: fixed;
-    right: 22px;
-    bottom: 22px;
-    z-index: 999;
-    border: 1px solid var(--soc-border);
-    background: #0a2941;
-    color: #fff;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    cursor: pointer;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(8px);
-    transition: all .2s ease;
-    box-shadow: 0 7px 22px rgba(0,0,0,.2);
+  #projects .clean-lab-info strong,
+  #projects .clean-detail-card h3,
+  #projects .clean-subtitle {
+    color: #19364b;
+    font-size: 20px;
+    font-weight: 700;
   }
 
-  #soc-back-top.soc-show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
+  #projects .clean-lab-info p,
+  #projects .clean-detail-card p {
+    color: #607b90;
+    line-height: 1.7;
+    margin: 12px 0;
   }
 
-  /* Animate dashboard only, without hiding existing content */
-  @keyframes soc-enter {
-    from { opacity: 0; transform: translateY(12px); }
-    to { opacity: 1; transform: translateY(0); }
+  #projects .clean-lab-info a {
+    color: #007f9e;
+    text-decoration: none;
+    font-weight: 600;
   }
 
-  .soc-shell {
-    animation: soc-enter .55s ease both;
+  #projects .clean-subtitle {
+    margin: 30px 0 18px;
   }
 
-  @media (max-width: 760px) {
-    .soc-stats,
-    .soc-machines {
-      grid-template-columns: 1fr;
+  @media (max-width: 600px) {
+    #projects.clean-projects {
+      padding: 30px 14px 45px;
     }
 
-    .soc-shell { padding: 20px; }
-
-    #soc-menu-toggle {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    #projects .clean-project-card {
+      gap: 14px;
+      padding: 18px 14px;
+      border-radius: 18px;
     }
 
-    .soc-mobile-nav {
-      position: relative;
-      flex-wrap: wrap;
-      gap: 10px;
+    #projects .clean-project-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 14px;
     }
 
-    .soc-mobile-nav > ul,
-    .soc-mobile-nav > .nav-links {
-      display: none !important;
-      flex-basis: 100%;
-      width: 100%;
-      flex-direction: column;
-      align-items: stretch;
-      background: #0a2237;
-      border: 1px solid var(--soc-border);
-      border-radius: 12px;
-      padding: 12px;
-      margin: 8px 0 0;
+    #projects .clean-project-icon svg {
+      width: 24px;
+      height: 24px;
     }
 
-    .soc-mobile-nav.soc-open > ul,
-    .soc-mobile-nav.soc-open > .nav-links {
-      display: flex !important;
+    #projects .clean-project-content strong {
+      font-size: 17px;
     }
 
-    .soc-mobile-nav.soc-open a {
-      display: block;
-      padding: 10px;
-      color: #eaf5fc;
+    #projects .clean-description {
+      font-size: 14px;
     }
 
-    .soc-progress-item {
-      align-items: flex-start;
-      flex-direction: column;
-      gap: 5px;
+    #projects .clean-project-link {
+      font-size: 14px;
+    }
+
+    #projects .project-intro {
+      font-size: 16px;
     }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    html { scroll-behavior: auto; }
-    .soc-shell { animation: none; }
-    .soc-machine,
-    .soc-link,
-    #soc-back-top,
-    .project-card,
-    .skill-card,
-    .experience-card,
-    .card {
+    #projects .clean-project-card {
       transition: none;
     }
   }
 </style>
 
-<section id="soc-dashboard" aria-labelledby="soc-dashboard-title">
-  <div class="soc-shell">
-    <div class="soc-topline">Cybersecurity / Hands-On Lab</div>
-    <h2 class="soc-heading" id="soc-dashboard-title">
-      SOC Home Lab Dashboard
-    </h2>
-    <p class="soc-description">
-      An isolated Hyper-V cybersecurity lab built to practice
-      endpoint telemetry collection, SIEM monitoring, detection
-      engineering, and security incident investigation.
-    </p>
-
-    <div class="soc-status">
-      <span class="soc-dot" aria-hidden="true"></span>
-      Lab established · Detection testing in progress
-    </div>
-
-    <div class="soc-stats">
-      <div class="soc-stat">
-        <strong>3</strong>
-        <span>Virtual machines</span>
-      </div>
-      <div class="soc-stat">
-        <strong>1</strong>
-        <span>Isolated virtual network</span>
-      </div>
-      <div class="soc-stat">
-        <strong>Wazuh</strong>
-        <span>SIEM and endpoint monitoring</span>
-      </div>
-    </div>
-
-    <h3 class="soc-subheading">Explore the Lab Machines</h3>
-    <p class="soc-description">
-      Select a machine to see its role and configuration.
-    </p>
-
-    <div class="soc-machines">
-      <button type="button" class="soc-machine"
-              data-machine="windows" aria-pressed="true">
-        <span class="soc-machine-title">WIN-01</span>
-        <span class="soc-machine-ip">10.10.10.10</span>
-        <p>Windows 11 Pro endpoint</p>
-      </button>
-
-      <button type="button" class="soc-machine"
-              data-machine="siem" aria-pressed="false">
-        <span class="soc-machine-title">SIEM-01</span>
-        <span class="soc-machine-ip">10.10.10.20</span>
-        <p>Wazuh monitoring server</p>
-      </button>
-
-      <button type="button" class="soc-machine"
-              data-machine="kali" aria-pressed="false">
-        <span class="soc-machine-title">KALI-01</span>
-        <span class="soc-machine-ip">10.10.10.30</span>
-        <p>Kali Linux testing machine</p>
-      </button>
-    </div>
-
-    <div class="soc-detail" id="soc-machine-detail"
-         role="status" aria-live="polite">
-      <strong>WIN-01 · Windows Endpoint</strong>
-      <div>
-        Windows 11 Pro with Sysmon and the Wazuh agent.
-        Provides endpoint telemetry for centralized
-        security monitoring and analysis.
-      </div>
-    </div>
-
-    <h3 class="soc-subheading">Lab Implementation Progress</h3>
-
-    <div class="soc-progress">
-      <div class="soc-progress-item">
-        <span>Hyper-V virtual environment</span>
-        <span class="soc-complete">✓ Complete</span>
-      </div>
-
-      <div class="soc-progress-item">
-        <span>Isolated SOC-LAB network (10.10.10.0/24)</span>
-        <span class="soc-complete">✓ Complete</span>
-      </div>
-
-      <div class="soc-progress-item">
-        <span>Windows Sysmon and Wazuh log collection</span>
-        <span class="soc-complete">✓ Complete</span>
-      </div>
-
-      <div class="soc-progress-item">
-        <span>Detection testing and validation</span>
-        <span class="soc-ongoing">In progress</span>
-      </div>
-
-      <div class="soc-progress-item">
-        <span>Incident investigation documentation</span>
-        <span class="soc-ongoing">Planned</span>
-      </div>
-    </div>
-
-    <a class="soc-link"
-       href="https://github.com/Natnael-Haile/Wazuh-SOC-Home-Lab"
-       target="_blank"
-       rel="noopener noreferrer">
-      Explore Lab on GitHub ↗
-    </a>
-  </div>
-</section>
-
-<button id="soc-back-top" type="button"
-        aria-label="Back to top" title="Back to top">
-  ↑
-</button>
-
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  /* 1. Interactive lab machine cards */
-  const machineDetails = {
-    windows: {
-      title: "WIN-01 · Windows Endpoint",
-      description:
-        "Windows 11 Pro with Sysmon and the Wazuh agent. " +
-        "Provides endpoint telemetry for centralized " +
-        "security monitoring and analysis."
+(function () {
+  const home = document.getElementById("project-home");
+  const soc = document.getElementById("project-soc");
+  const details = document.getElementById("project-details");
+
+  const projectData = {
+    logs: {
+      title: "Log Analysis",
+      description: "Windows, Sysmon, and Wazuh log investigation.",
+      overview: "Analyze endpoint telemetry and security events to identify suspicious activity and document investigation findings.",
+      tools: "Windows Event Viewer, Sysmon, Wazuh",
+      parent: "soc"
     },
-    siem: {
-      title: "SIEM-01 · Security Monitoring",
-      description:
-        "Wazuh Manager and Dashboard. Receives and " +
-        "organizes security telemetry from the lab " +
-        "for monitoring, alert review, and investigation."
+    triage: {
+      title: "SOC L1 Triage",
+      description: "First-level alert investigation.",
+      overview: "Review alerts, assess severity, validate suspicious behavior, and document escalation decisions.",
+      tools: "Wazuh, SIEM, MITRE ATT&CK",
+      parent: "soc"
     },
-    kali: {
-      title: "KALI-01 · Security Testing",
-      description:
-        "Kali Linux machine used for controlled " +
-        "security testing within the isolated SOC-LAB " +
-        "network. Detection validation is ongoing."
+    ai: {
+      title: "AI SOC Analysis",
+      description: "AI-assisted security investigation.",
+      overview: "Explore AI-supported alert interpretation and investigation summaries, with analyst verification of conclusions.",
+      tools: "AI-assisted analysis, Security Logs",
+      parent: "soc"
+    },
+    vulnerability: {
+      title: "Vulnerability Assessment",
+      description: "Security vulnerability assessment.",
+      overview: "Document assessment scope, identify potential vulnerabilities, prioritize risks, and recommend remediation.",
+      tools: "Nmap, Vulnerability Assessment Techniques",
+      parent: "home"
+    },
+    phishing: {
+      title: "Phishing Analysis",
+      description: "Suspicious email investigation.",
+      overview: "Analyze email headers, sender information, URLs, and indicators of compromise to determine phishing risk.",
+      tools: "Email Header Analysis, URL Analysis, IOCs",
+      parent: "home"
+    },
+    controls: {
+      title: "Security Controls Assessment",
+      description: "Security configuration and controls evaluation.",
+      overview: "Assess security controls against recognized guidance and document findings and mitigations.",
+      tools: "CIS Benchmarks, STIG, OWASP Top 10",
+      parent: "home"
+    },
+    yoga: {
+      title: "Yoga Class Registration System",
+      description: "Database-driven registration application.",
+      overview: "Design and implement database operations for managing clients, class registrations, and check-ins.",
+      tools: "MySQL, SQL, LAMP Stack",
+      parent: "home"
     }
   };
 
-  const detail = document.getElementById("soc-machine-detail");
-  const machineButtons =
-    document.querySelectorAll(".soc-machine");
+  let returnView = "home";
 
-  machineButtons.forEach(button => {
-    button.addEventListener("click", () => {
-      const data = machineDetails[button.dataset.machine];
-      if (!data || !detail) return;
+  function show(view) {
+    home.hidden = view !== "home";
+    soc.hidden = view !== "soc";
+    details.hidden = view !== "details";
 
-      machineButtons.forEach(item =>
-        item.setAttribute("aria-pressed", "false")
-      );
-
-      button.setAttribute("aria-pressed", "true");
-      detail.replaceChildren();
-
-      const heading = document.createElement("strong");
-      heading.textContent = data.title;
-
-      const paragraph = document.createElement("div");
-      paragraph.textContent = data.description;
-
-      detail.append(heading, paragraph);
-    });
-  });
-
-  /* 2. Place dashboard after existing SOC Home Lab */
-  const dashboard = document.getElementById("soc-dashboard");
-
-  const sections = Array.from(
-    document.querySelectorAll("main section, section[id]")
-  ).filter(section => section !== dashboard);
-
-  const labSection = sections.find(section => {
-    const heading = section.querySelector("h1, h2, h3");
-    return heading &&
-      /soc home lab|wazuh soc home lab/i.test(
-        heading.textContent
-      );
-  });
-
-  if (labSection && dashboard) {
-    labSection.insertAdjacentElement("afterend", dashboard);
+    document.getElementById("projects")
+      .scrollIntoView({ behavior: "auto", block: "start" });
   }
 
-  /* 3. Mobile navigation for common nav structures */
-  const nav = document.querySelector("header nav, nav");
-  const navList = nav &&
-    nav.querySelector(":scope > ul, :scope > .nav-links");
+  document.querySelectorAll("#projects [data-project]")
+    .forEach(button => {
+      button.addEventListener("click", () => {
+        const id = button.dataset.project;
 
-  if (nav && navList) {
-    nav.classList.add("soc-mobile-nav");
+        if (id === "soc") {
+          show("soc");
+          return;
+        }
 
-    const toggle = document.createElement("button");
-    toggle.id = "soc-menu-toggle";
-    toggle.type = "button";
-    toggle.textContent = "☰";
-    toggle.setAttribute("aria-label", "Toggle navigation");
-    toggle.setAttribute("aria-expanded", "false");
+        const project = projectData[id];
+        if (!project) return;
 
-    nav.insertBefore(toggle, navList);
+        returnView = project.parent;
 
-    const closeMenu = () => {
-      nav.classList.remove("soc-open");
-      toggle.setAttribute("aria-expanded", "false");
-      toggle.textContent = "☰";
-    };
+        document.getElementById("clean-detail-title")
+          .textContent = project.title;
+        document.getElementById("clean-detail-description")
+          .textContent = project.description;
+        document.getElementById("clean-detail-overview")
+          .textContent = project.overview;
+        document.getElementById("clean-detail-tools")
+          .textContent = project.tools;
 
-    toggle.addEventListener("click", () => {
-      const open = nav.classList.toggle("soc-open");
-      toggle.setAttribute("aria-expanded", String(open));
-      toggle.textContent = open ? "✕" : "☰";
-    });
-
-    nav.querySelectorAll('a[href^="#"]').forEach(link => {
-      link.addEventListener("click", closeMenu);
-    });
-
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape") closeMenu();
-    });
-
-    window.addEventListener("resize", () => {
-      if (window.innerWidth > 760) closeMenu();
-    });
-  }
-
-  /* 4. Highlight current section in navigation */
-  const sectionLinks = Array.from(
-    document.querySelectorAll('nav a[href^="#"]')
-  );
-
-  const tracked = sectionLinks.map(link => {
-    const id = link.getAttribute("href").slice(1);
-    return {
-      link,
-      section: id ? document.getElementById(id) : null
-    };
-  }).filter(item => item.section);
-
-  if ("IntersectionObserver" in window) {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) return;
-
-        sectionLinks.forEach(link =>
-          link.classList.remove("soc-active")
-        );
-
-        const match = tracked.find(
-          item => item.section === entry.target
-        );
-
-        if (match) match.link.classList.add("soc-active");
+        show("details");
       });
-    }, {
-      rootMargin: "-20% 0px -60% 0px"
     });
 
-    tracked.forEach(item => observer.observe(item.section));
-  }
-
-  /* 5. Back-to-top control */
-  const backTop = document.getElementById("soc-back-top");
-
-  const updateBackTop = () => {
-    backTop.classList.toggle(
-      "soc-show",
-      window.scrollY > 350
-    );
-  };
-
-  window.addEventListener("scroll", updateBackTop, {
-    passive: true
-  });
-
-  updateBackTop();
-
-  backTop.addEventListener("click", () => {
-    window.scrollTo({
-      top: 0,
-      behavior: window.matchMedia(
-        "(prefers-reduced-motion: reduce)"
-      ).matches ? "auto" : "smooth"
+  document.querySelectorAll('#projects [data-back="home"]')
+    .forEach(button => {
+      button.addEventListener("click", () => show("home"));
     });
-  });
-});
+
+  document.getElementById("project-detail-back")
+    .addEventListener("click", () => show(returnView));
+
+  document.querySelectorAll('a[href="#projects"]')
+    .forEach(link => {
+      link.addEventListener("click", () => {
+        home.hidden = false;
+        soc.hidden = true;
+        details.hidden = true;
+      });
+    });
+})();
 </script>
-
-
