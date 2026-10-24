@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="Natnael Haile | Cybersecurity Portfolio" name="description"/>
+<title>Natnael Haile | Cybersecurity Portfolio</title>
+<style>
+:root{--bg:#020d1b;--panel:#04182b;--orange:#ff7438;--cyan:#36cfff;--text:#f4f8ff;--muted:#b6c7da}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(ellipse at 100% 45%,#ff6b2820,transparent 35%),repeating-linear-gradient(130deg,transparent 0 74px,#0c3c5825 75px,transparent 76px),var(--bg);color:var(--text);font:15px/1.6 'Segoe UI',Arial,sans-serif}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer}.wrap{width:min(1120px,calc(100% - 42px));margin:auto}header{position:sticky;top:0;z-index:10;background:#020e1deF;border-bottom:1px solid #1c4a65;backdrop-filter:blur(12px)}nav{min-height:67px;display:flex;align-items:center;justify-content:space-between;gap:20px}.brand{display:flex;align-items:center;gap:13px;letter-spacing:3px;font-size:12px;font-weight:700;white-space:nowrap}.brand b{color:var(--orange);font-size:27px;letter-spacing:0}.links{display:flex;align-items:center;gap:24px;font-size:12px}.links a:hover{color:var(--orange)}.resume{border:1px solid #e87943;padding:7px 17px;border-radius:7px}.hero{position:relative;isolation:isolate;min-height:455px;display:flex;align-items:center;overflow:hidden;border-bottom:1px solid #ad5b38;background:linear-gradient(90deg,#031122 0%,#031122f0 37%,#03112230 72%),url('assets/hero-soc.jpg') right center/auto 100% no-repeat,#0b2235}.hero:after{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,#02101d50,transparent 45%)}.hero-inner{padding:65px 0}.hero-copy{max-width:565px}.eyebrow{color:var(--cyan);font-size:11px;letter-spacing:2.5px;font-weight:700}.hero h1{font-size:clamp(48px,7vw,73px);letter-spacing:-2px;line-height:1.05;margin:16px 0 7px}.orange{color:var(--orange)}.role{font-weight:600;font-size:16px}.muted{color:var(--muted)}.hero p{max-width:460px}.actions{display:flex;gap:16px;flex-wrap:wrap;margin:24px 0}.btn{display:inline-block;padding:12px 22px;border-radius:7px;font-weight:700;font-size:13px;border:1px solid #5b8cad;background:#041b30}.btn.primary{background:linear-gradient(110deg,#ff763a,#9d2915);border-color:#ff9b55;box-shadow:0 0 18px #ff6e3755}.btn:hover,.project a:hover{filter:brightness(1.2)}.stats{display:flex;gap:28px;margin-top:26px}.stats>div{padding-right:24px;border-right:1px solid #1a5374}.stats>div:last-child{border:0}.stats b{display:block;color:var(--orange);font-size:25px}.stats small{font-size:11px;color:var(--muted)}main{padding:16px 0 30px}.panel{position:relative;overflow:hidden;border:1px solid #d46b3c;border-radius:12px;background:linear-gradient(135deg,#061b30f5,#02101ef2);box-shadow:0 0 17px #ff753323;margin:13px 0;padding:24px}.label{font-size:10px;letter-spacing:1.5px;color:var(--cyan);font-weight:700}.label:before{content:'//';color:var(--orange);font-size:17px;margin-right:13px}h2{font-size:27px;line-height:1.2;margin:10px 0 16px}h3{margin:0 0 7px;font-size:17px}.about{min-height:265px;background:linear-gradient(90deg,#041527 0%,#041527e8 45%,#04152760 100%),url('assets/about-globe.jpg') right top/60% auto no-repeat,#06192a}.about-text{max-width:51%}.about-features{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;width:48%;margin-left:auto;margin-top:-55px}.feature{background:#061c30ee;border:1px solid #2e5b77;border-radius:8px;padding:15px;min-height:117px}.feature .ico{font-size:27px;color:var(--cyan)}.feature strong{display:block;font-size:12px}.feature p{margin:2px 0;font-size:11px;color:var(--muted)}.skills{display:grid;grid-template-columns:repeat(8,1fr);gap:10px}.skill{background:#05233c;border:1px solid #1a5d83;border-radius:7px;text-align:center;padding:12px 5px;min-height:105px}.skill .ico{font-size:27px;color:var(--cyan)}.skill strong{display:block;font-size:12px}.skill small{font-size:10px;color:var(--muted)}.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}.project{background:#051b2f;border:1px solid #2d7298;border-radius:8px;overflow:hidden}.project-img{height:150px;background:#133047;position:relative}.project-img img{display:block;width:100%;height:100%;object-fit:cover}.number{position:absolute;top:12px;left:12px;border-radius:50%;width:40px;height:40px;display:grid;place-items:center;background:#071424e8;border:1px solid var(--orange);font-size:13px}.project-body{padding:14px}.project p{color:var(--muted);font-size:12px;margin:6px 0}.tags{display:flex;gap:6px;flex-wrap:wrap;margin:12px 0}.tag{font-size:10px;color:#a6e8ff;border:1px solid #256a94;background:#062b47;border-radius:20px;padding:3px 9px}.project a{font-weight:700;color:var(--orange);font-size:13px}.extra{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:13px}.extra article,.job{background:#061b2d;border:1px solid #2b6485;border-radius:8px;padding:16px}.extra p{font-size:12px;color:var(--muted)}.experience{border-color:#ad6a48}.job{margin-top:12px}.job-top{display:flex;justify-content:space-between;gap:15px}.job h3{margin:0}.job .company{color:var(--cyan);font-size:13px}.date{font-size:12px;color:#f8b68e}.job ul{margin:10px 0 0;padding-left:20px;color:var(--muted);font-size:13px}.job li{margin:4px 0}.job li::marker{color:var(--orange)}.bottom{display:grid;grid-template-columns:1fr 1fr;gap:15px}.bottom .panel{height:100%;margin:0}.contact{background:linear-gradient(90deg,#06182bea,#06182bc0),url('assets/sunset-city.jpg') right center/auto 100% no-repeat,#061b30}.contact a{display:block;color:#71dfff;font-size:13px;margin:10px 0;overflow-wrap:anywhere}.contact a:hover{color:var(--orange)}footer{text-align:center;color:#8ca9c1;font-size:12px;padding:20px}section{scroll-margin-top:80px}.note{font-size:11px;color:#9db4c7}.mini-heading{display:flex;justify-content:space-between;align-items:center;gap:10px}.mini-heading h2{margin:8px 0 15px}@media(max-width:850px){nav{flex-wrap:wrap;justify-content:center;padding:9px 0}.links{flex-wrap:wrap;justify-content:center;gap:12px}.skills{grid-template-columns:repeat(4,1fr)}.about-text{max-width:100%}.about-features{width:100%;margin:18px 0 0}.about{background:linear-gradient(90deg,#041527f5,#041527cc),url('assets/about-globe.jpg') right top/cover no-repeat}.hero{background:linear-gradient(90deg,#031122fa,#031122b0),url('assets/hero-soc.jpg') center/cover no-repeat}}@media(max-width:590px){.wrap{width:min(100% - 24px,1120px)}.panel{padding:17px}.hero h1{font-size:46px}.hero-inner{padding:50px 0}.projects,.bottom,.extra{grid-template-columns:1fr}.skills{grid-template-columns:repeat(2,1fr)}.about-features{grid-template-columns:1fr}.stats{gap:10px}.stats>div{padding-right:10px}.job-top{display:block}.links{font-size:11px}h2{font-size:24px}}
+
+/* Interactive projects and local logos */
+.company-logo{width:112px;height:52px;object-fit:contain;display:block;margin:10px 0}.gmu-logo{width:65px;height:65px;object-fit:contain;display:block;margin:12px 0}.skill .ico{min-height:40px;display:flex;align-items:center;justify-content:center}.skill-logo{width:38px;height:38px;object-fit:contain}.mini-os-logo{width:14px;height:14px;vertical-align:middle;margin-left:4px}.project-open{border:0;background:transparent;color:var(--orange);padding:5px 0;font-weight:700;font-size:13px;cursor:pointer}.project-open:hover{text-decoration:underline}.project[role=button]{cursor:pointer}.project[role=button]:focus-visible,.project-open:focus-visible,.modal-close:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}.project-modal[hidden]{display:none}.project-modal{position:fixed;inset:0;z-index:500;display:grid;place-items:center;padding:18px}.modal-backdrop{position:absolute;inset:0;background:#010913e8;backdrop-filter:blur(7px)}.modal-panel{position:relative;width:min(720px,100%);max-height:88vh;overflow:auto;border:1px solid var(--orange);border-radius:14px;background:linear-gradient(135deg,#09243a,#03101e);padding:30px;box-shadow:0 0 40px #ff773b38}.modal-close{position:absolute;right:16px;top:10px;color:white;background:transparent;border:0;font-size:34px}.modal-panel h2{padding-right:35px}.modal-panel h3{color:var(--cyan);font-size:15px;margin:20px 0 5px}.modal-panel ul{color:var(--muted);padding-left:20px}.modal-panel li{margin:7px 0}.modal-panel a{display:inline-block;color:var(--orange);font-weight:700;margin-top:16px}.modal-subprojects{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:16px}.modal-subprojects button{border:1px solid #357396;background:#0c314b;border-radius:8px;padding:12px;color:#dff5ff;text-align:left;cursor:pointer}.modal-subprojects button:hover{border-color:var(--orange)}@media(max-width:600px){.modal-subprojects{grid-template-columns:1fr}.modal-panel{padding:20px}}
+
+/* Interactive project case-study interface */
+.modal-panel{max-width:960px!important;width:min(960px,calc(100% - 28px))!important;max-height:90vh;overflow-y:auto}
+.case-status{display:inline-block;margin:8px 0 15px;padding:5px 12px;border-radius:20px;border:1px solid #b67541;background:#3b2418;color:#ffd4aa;font-size:12px}
+.case-tools{display:flex;flex-wrap:wrap;gap:7px;margin:12px 0 18px}
+.case-tools span{font-size:12px;padding:5px 10px;border-radius:20px;background:#0c3551;border:1px solid #2b688c;color:#b6edff}
+.case-tabs{display:flex;gap:7px;overflow-x:auto;padding:5px 0 13px;margin:12px 0;border-bottom:1px solid #28526d;scrollbar-width:thin}
+.case-tab{flex:0 0 auto;border:1px solid #315f7d;border-radius:8px;background:#08253d;color:#c4d8e8;padding:9px 12px;font-size:12px;font-weight:650}
+.case-tab[aria-selected="true"]{background:#b94f2d;color:white;border-color:#ff9357}
+.case-pane{min-height:190px;padding:8px 0 12px}
+.case-pane h3{color:#ff9b66;font-size:19px;margin:8px 0 10px}
+.case-pane p,.case-pane li{color:#c1d3e3}
+.case-pane ul,.case-pane ol{padding-left:24px}
+.case-pane li{margin:9px 0}
+.case-note{border-left:3px solid #36cfff;padding:12px 15px;background:#0a2941;border-radius:5px;color:#d0e7f5;margin:16px 0}
+.case-evidence{border:1px dashed #467795;border-radius:10px;padding:18px;background:#0b273d}
+.case-evidence strong{color:#fff}
+.case-evidence p{margin:6px 0 0}
+.case-actions{display:flex;flex-wrap:wrap;gap:12px;margin-top:17px}
+.case-actions a,.case-back{border:1px solid #df7a4a;border-radius:8px;background:#103149;color:#fff;padding:10px 14px;text-decoration:none;font-size:13px;cursor:pointer}
+.case-actions a:hover,.case-back:hover{background:#a64a2b}
+.case-subgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}
+.case-subgrid button{border:1px solid #366a8c;border-radius:10px;background:#092a43;color:#fff;padding:16px;text-align:left;cursor:pointer}
+.case-subgrid button:hover{border-color:#ff793e}
+.case-subgrid small{display:block;color:#b6cbdc;margin-top:7px}
+.case-flow{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:18px 0}
+.case-node{border:1px solid #4a9abd;border-radius:9px;background:#0b314c;padding:13px 10px;min-width:120px;flex:1;text-align:center}
+.case-node strong{display:block;color:#64d8ff;font-size:13px}.case-node small{display:block;color:#c3d3df;font-size:11px}
+@media(max-width:640px){.case-subgrid{grid-template-columns:1fr}.case-flow{flex-direction:column}.case-node{width:100%}.modal-panel{padding:19px!important}}
+</style>
+</head>
+<body>
+<header><nav class="wrap"><a class="brand" href="#home"><b>NH</b> NATNAEL HAILE</a><div class="links"><a href="#home">Home</a><a href="#about">About</a><a href="#projects">Projects</a><a href="#experience">Experience</a><a href="#education">Education</a><a href="#contact">Contact</a><a class="resume" href="mailto:natiman1018@gmail.com?subject=Resume%20Request">Resume ↧</a></div></nav></header>
+<section class="hero" id="home"><div class="wrap hero-inner"><div class="hero-copy"><div class="eyebrow">// CYBERSECURITY PORTFOLIO</div><h1>Natnael <span class="orange">Haile</span></h1><div class="role">Aspiring SOC Analyst | Security Monitoring | Incident Response</div><p class="muted">Building a safer digital world through continuous learning, hands-on projects, and a passion for cybersecurity.</p><div class="actions"><a class="btn primary" href="#projects">View My Projects →</a><a class="btn" href="mailto:natiman1018@gmail.com?subject=Resume%20Request">Request Resume ↧</a></div><div class="stats"><div><b>5</b><small>Featured Projects</small></div><div><b>3</b><small>Amazon Roles</small></div><div><b>100%</b><small>Driven to Learn</small></div></div></div></div></section>
+<main class="wrap">
+<section class="panel about" id="about"><div class="label">ABOUT ME</div><div class="about-text"><h2>Turning Curiosity into<br/>Cybersecurity <span class="orange">Impact</span></h2><p class="muted">I'm Natnael, an Information Technology student concentrating in Cybersecurity at George Mason University. I enjoy solving complex problems, learning new technologies, and applying theory through hands-on security projects.</p><p class="muted">My goal is to become a SOC Analyst. I'm developing practical monitoring and investigation skills in my Hyper-V and Wazuh home lab.</p></div><div class="about-features"><div class="feature"><div class="ico">♢</div><strong>Always Learning</strong><p>Exploring tools, techniques and real-world security challenges.</p></div><div class="feature"><div class="ico">♧</div><strong>Problem Solver</strong><p>Analyzing issues and finding effective solutions.</p></div><div class="feature"><div class="ico">◎</div><strong>Impact Driven</strong><p>Working toward a safer digital future.</p></div></div></section>
+<section class="panel" id="skills"><div class="label">TECHNICAL SKILLS</div><div class="skills"><div class="skill"><div class="ico"><img alt="Linux logo" class="skill-logo" src="assets/linux-logo.svg"/></div><strong>Linux</strong><small><img alt="Kali logo" class="mini-os-logo" src="assets/kali-logo.svg"/> Kali <img alt="Ubuntu logo" class="mini-os-logo" src="assets/ubuntu-logo.svg"/> Ubuntu </small></div><div class="skill"><div class="ico"><img alt="Windows logo" class="skill-logo" src="assets/windows-logo.svg"/></div><strong>Windows</strong><small>Event Logs, Sysmon</small></div><div class="skill"><div class="ico">⬡</div><strong>SIEM</strong><small>Wazuh</small></div><div class="skill"><div class="ico">∿</div><strong>Network Analysis</strong><small>Wireshark</small></div><div class="skill"><div class="ico">◎</div><strong>Vulnerability</strong><small>Nmap, Nikto</small></div><div class="skill"><div class="ico">☁</div><strong>Virtualization</strong><small>Hyper-V</small></div><div class="skill"><div class="ico">⌘</div><strong>Frameworks</strong><small>MITRE, CIS, STIG</small></div><div class="skill"><div class="ico">▤</div><strong>Forensics</strong><small>Autopsy, FTK</small></div></div></section>
+<section class="panel" id="projects"><div class="label">FEATURED PROJECTS</div><div class="mini-heading"><h2>Hands-On Cybersecurity Projects</h2><a class="btn" href="https://github.com/Natnael-Haile" rel="noopener" target="_blank">View All Projects →</a></div><div class="projects"><article aria-label="Open SOC Home Lab" class="project" data-project="0" role="button" tabindex="0"><div class="project-img"><img alt="SOC security monitoring screens" src="assets/project-soc.jpg"/><span class="number">01</span></div><div class="project-body"><h3>SOC Home Lab</h3><p>Building a virtual SOC using Wazuh SIEM, Sysmon, Kali Linux and Windows VMs. Log collection is configured; detection testing is in progress.</p><div class="tags"><span class="tag">Wazuh</span><span class="tag">Sysmon</span><span class="tag">Kali Linux</span><span class="tag">Windows</span></div><button class="project-open" data-project="0" type="button">Explore Project →</button></div></article><article aria-label="Open Network &amp; Traffic Analysis" class="project" data-project="1" role="button" tabindex="0"><div class="project-img"><img alt="Network security analysis screen" src="assets/project-network.jpg"/><span class="number">02</span></div><div class="project-body"><h3>Network &amp; Traffic Analysis</h3><p>Practicing packet analysis and network discovery with Wireshark and Nmap to understand network activity and potential threats.</p><div class="tags"><span class="tag">Wireshark</span><span class="tag">Nmap</span><span class="tag">Networking</span></div><button class="project-open" data-project="1" type="button">Explore Project →</button></div></article><article aria-label="Open Phishing Analysis" class="project" data-project="2" role="button" tabindex="0"><div class="project-img"><img alt="Phishing email analysis illustration" src="assets/project-phishing.svg"/><span class="number">03</span></div><div class="project-body"><h3>Phishing Analysis</h3><p>Analyzing suspicious emails, sender details, links, and indicators of compromise to recognize phishing attempts.</p><div class="tags"><span class="tag">Email Security</span><span class="tag">URL Analysis</span><span class="tag">IOCs</span></div><button class="project-open" data-project="2" type="button">Explore Project →</button></div></article></div><div class="extra"><article><h3>Security Controls Assessment</h3><p>Assessing system controls and recommending improvements using CIS Benchmarks, STIG and OWASP.</p><button class="project-open" data-project="3" type="button">Explore Project →</button></article><article><h3>Yoga Class Registration System</h3><p>MySQL project using relational tables, views, stored procedures and role-based permissions.</p><button class="project-open" data-project="4" type="button">Explore Project →</button></article></div></section>
+<section class="panel experience" id="experience"><div class="label">PROFESSIONAL EXPERIENCE</div><img alt="Amazon logo" class="company-logo" src="assets/amazon-logo.svg"/><h2>Amazon <span class="orange">Career Progression</span></h2><article class="job"><div class="job-top"><div><h3>Area Manager</h3><span class="company">Amazon</span></div><span class="date">May 2024 – Present</span></div><ul><li>Lead 80+ associates while monitoring productivity, safety, quality and daily performance.</li><li>Designed an application to help leadership identify performance gaps and improvement opportunities.</li><li>Analyze KPIs, coordinate cross-functional solutions and communicate performance updates.</li></ul></article><article class="job"><div class="job-top"><div><h3>Process Assistant</h3><span class="company">Amazon</span></div><span class="date">Sep 2022 – May 2024</span></div><ul><li>Monitored workflow, productivity and bottlenecks to support operational targets.</li><li>Assisted Area Managers, coordinated associates and supported safety and quality standards.</li><li>Developed leadership, communication and problem-solving skills supporting promotion.</li></ul></article><article class="job"><div class="job-top"><div><h3>Associate</h3><span class="company">Amazon</span></div><span class="date">Mar 2020 – Sep 2022</span></div><ul><li>Performed operational tasks in accordance with standard procedures and safety requirements.</li><li>Collaborated with teammates and developed reliability, adaptability and continuous improvement skills.</li></ul></article></section>
+<div class="bottom"><section class="panel" id="education"><div class="label">EDUCATION &amp; CERTIFICATIONS</div><img alt="George Mason University logo" class="gmu-logo" src="assets/gmu-logo.svg"/><h2>George Mason University</h2><p><strong>B.S. Information Technology</strong><br/>Cybersecurity Concentration<br/><span class="muted">Expected graduation: December 2026<br/>GPA: 3.76</span></p><div class="tags"><span class="tag">CompTIA Security+ · In Progress</span></div></section><section class="panel contact" id="contact"><div class="label">GET IN TOUCH</div><h2>Let's Connect</h2><p class="muted">I'm open to cybersecurity opportunities, professional connections and collaboration on security projects.</p><a href="mailto:natiman1018@gmail.com">✉   natiman1018@gmail.com</a><a href="https://www.linkedin.com/in/natnael-haile-b368b02b5/" rel="noopener" target="_blank">▣   LinkedIn / natnael-haile</a><a href="https://github.com/Natnael-Haile" rel="noopener" target="_blank">◉   github.com/Natnael-Haile</a></section></div>
+</main><footer>© 2026 Natnael Haile · Cybersecurity Portfolio</footer>
+<div class="project-modal" hidden="" id="projectModal"><div class="modal-backdrop" data-close="true"></div><section aria-labelledby="modalTitle" aria-modal="true" class="modal-panel" role="dialog" tabindex="-1"><button aria-label="Close project details" class="modal-close" type="button">×</button><div class="label">PROJECT DETAILS</div><h2 id="modalTitle"></h2><p class="muted" id="modalSummary"></p><div id="modalBody"></div><div id="modalActions"></div></section></div><script>
+(function () {
+  'use strict';
+  const modal = document.getElementById('projectModal');
+  const panel = modal.querySelector('.modal-panel');
+  const title = document.getElementById('modalTitle');
+  const summary = document.getElementById('modalSummary');
+  const body = document.getElementById('modalBody');
+  const actions = document.getElementById('modalActions');
+  let lastFocus = null;
+  let activeProject = 0;
+  let activeTab = 0;
+  let subProject = null;
+
+  const tabs = ['Overview', 'Lab Setup & Tools', 'Methodology', 'Investigation', 'Evidence', 'Results', 'Lessons Learned'];
+  const projects = [
+    {
+      name: 'SOC Home Lab', status: 'In Progress',
+      summary: 'A virtual Security Operations Center for log collection, threat detection practice, and incident triage.',
+      tools: ['Hyper-V', 'Wazuh SIEM', 'Sysmon', 'Windows 11', 'Kali Linux', 'MITRE ATT&CK'],
+      overview: ['Goal: develop hands-on security monitoring and investigation skills in an isolated lab.', 'Scope: configure endpoint telemetry, centralize events, and build a repeatable SOC investigation workflow.'],
+      setup: ['SOC-LAB network: 10.10.10.0/24.', 'WIN-01 — Windows 11 Pro, 10.10.10.10; Sysmon and Wazuh Agent.', 'SIEM-01 — Wazuh Manager and Dashboard, 10.10.10.20.', 'KALI-01 — Kali Linux, 10.10.10.30.'],
+      method: ['Create isolated virtual machines in Hyper-V.', 'Install and configure the Wazuh manager and agent.', 'Configure Sysmon for endpoint telemetry.', 'Verify log collection in the Wazuh dashboard.', 'Develop and test detection scenarios; document findings as testing progresses.'],
+      investigation: ['Three SOC investigation tracks are available below. Select a track to review its scope and workflow.'],
+      evidence: ['Add a screenshot of the Wazuh dashboard showing WIN-01 connected.', 'Add redacted Windows/Sysmon events and an explanation of the fields reviewed.', 'Add a network architecture diagram and configuration notes.', 'Add a completed alert investigation only after the test has been run and validated.'],
+      results: ['Completed: virtual lab setup and log collection.', 'In progress: detection testing, alert validation, and documented investigations.', 'Next milestone: publish a reproducible detection test with an alert, supporting logs, and a triage conclusion.'],
+      lessons: ['Practice isolating a lab network and configuring security telemetry.', 'Improve troubleshooting skills by checking agent connectivity and event ingestion.', 'Next: strengthen alert triage documentation and map validated detections to MITRE ATT&CK.'],
+      url: 'https://github.com/Natnael-Haile/Wazuh-SOC-Home-Lab'
+    },
+    {
+      name: 'Network & Traffic Analysis', status: 'Practice / Documentation In Progress',
+      summary: 'Understanding network behavior through authorized discovery and packet analysis.',
+      tools: ['Wireshark', 'Nmap', 'TCP/IP', 'DNS', 'Network Analysis'],
+      overview: ['Goal: build practical network visibility and traffic analysis skills.', 'Focus: understand protocol behavior and recognize traffic worth further investigation.'],
+      setup: ['Use an authorized lab or your own test network.', 'Capture traffic using Wireshark and perform permitted network discovery with Nmap.'],
+      method: ['Define the lab scope and purpose of the capture.', 'Record network traffic in Wireshark.', 'Filter relevant packets by IP, port, or protocol.', 'Compare observed traffic with expected behavior.', 'Document any findings with packet numbers and timestamps.'],
+      investigation: ['Review DNS requests and responses, TCP handshakes, and unusual connection patterns.', 'Explain why an observed packet or flow is interesting rather than labeling all unusual traffic malicious.'],
+      evidence: ['Add a redacted Wireshark screenshot with the display filter visible.', 'Include a short packet-level explanation and the corresponding protocol.', 'Include authorized Nmap output and a summary of the observed services.'],
+      results: ['Record confirmed observations from your own captures; avoid claiming an attack without supporting evidence.', 'Add a finding, its significance, and a recommended next check.'],
+      lessons: ['Demonstrate TCP/IP troubleshooting, packet filtering, and clear evidence-based communication.'],
+      url: 'https://github.com/Natnael-Haile'
+    },
+    {
+      name: 'Phishing Analysis', status: 'Practice / Documentation In Progress',
+      summary: 'Investigating suspicious email characteristics and documenting a defensible phishing assessment.',
+      tools: ['Email Headers', 'Sender Verification', 'URL Analysis', 'IOC Review', 'Incident Reporting'],
+      overview: ['Goal: identify phishing indicators and explain a safe response.', 'Use a simulated or authorized email sample; do not expose personal or confidential email content.'],
+      setup: ['Use a clearly labeled simulated phishing email or a public training sample.', 'Prepare a safe text copy of the email, its headers, and a defanged URL (hxxps://).'],
+      method: ['Review the sender and reply-to domains.', 'Inspect authentication results (SPF, DKIM, DMARC) when available.', 'Identify urgency, credential requests, and impersonation indicators.', 'Inspect links safely without visiting suspicious destinations.', 'Document IOCs and determine the appropriate reporting or escalation action.'],
+      investigation: ['Example scenario: a message claims an account will be disabled unless the recipient signs in immediately.', 'Indicators to assess: mismatched sender domain, unverified login URL, urgent language, and email authentication results.', 'Conclusion should distinguish suspicious indicators from confirmed malicious activity.'],
+      evidence: ['Add an annotated screenshot of a simulated sample email.', 'Add a redacted header analysis with an explanation of the authentication results.', 'Add a small IOC table with defanged domains and a note about how they were verified.', 'Add a concise SOC-style assessment report.'],
+      results: ['Example assessment: multiple indicators justify treating the message as suspicious pending verification.', 'Recommended handling: do not click the link; report through approved security channels and preserve evidence.', 'Replace this example with your own documented findings after completing the exercise.'],
+      lessons: ['Practice distinguishing social-engineering pressure from technical evidence.', 'Strengthen investigation reporting, email security knowledge, and IOC documentation.'],
+      url: 'https://github.com/Natnael-Haile'
+    },
+    {
+      name: 'Security Controls Assessment', status: 'Project Documentation',
+      summary: 'Reviewing technical controls and recommending improvements using recognized security standards.',
+      tools: ['CIS Benchmarks', 'STIG', 'OWASP Top 10', 'Risk Assessment'],
+      overview: ['Goal: assess security configuration and document mitigation recommendations.'],
+      setup: ['Define the target operating system or application and its permitted assessment scope.', 'Select the appropriate benchmark and version.'],
+      method: ['Identify the relevant control and expected secure state.', 'Inspect the configuration or supporting evidence.', 'Record whether the control is met and the associated risk.', 'Recommend a practical mitigation and verification step.'],
+      investigation: ['Example topics include least privilege, logging, secure configuration, and patch management.', 'Document the exact control identifier for each assessed item.'],
+      evidence: ['Add a control matrix, redacted configuration screenshots, and references to the benchmark.', 'Include the finding, impact, mitigation, and verification result for each control.'],
+      results: ['Present confirmed compliant and noncompliant controls only when supported by assessment evidence.', 'Summarize prioritized recommendations.'],
+      lessons: ['Demonstrate structured assessment, technical writing, and security risk communication.'],
+      url: 'https://github.com/Natnael-Haile'
+    },
+    {
+      name: 'Yoga Class Registration System', status: 'Database Project',
+      summary: 'A relational MySQL project for managing clients, class check-ins, and controlled database access.',
+      tools: ['MySQL', 'SQL', 'Stored Procedures', 'Views', 'Access Controls'],
+      overview: ['Goal: design and manage structured client and class registration data.'],
+      setup: ['MySQL database with client and class check-in tables, a view, and a limited-permission user.'],
+      method: ['Create relational tables and insert test records.', 'Build a view for client data.', 'Implement a CheckIn stored procedure.', 'Configure limited database user access and test permissions.'],
+      investigation: ['Demonstrate how the stored procedure changes registration data.', 'Explain how restricted database permissions reduce unnecessary access.'],
+      evidence: ['Add a database schema diagram and sanitized SQL examples.', 'Add screenshots showing successful procedure execution and access tests.'],
+      results: ['Describe tested database behavior and any limitations found during development.'],
+      lessons: ['Demonstrate database design, SQL troubleshooting, and the principle of least privilege.'],
+      url: 'https://github.com/Natnael-Haile'
+    }
+  ];
+
+  const subprojects = {
+    logs: {name: 'Log Analysis', status: 'In Progress', tools: ['Wazuh', 'Sysmon', 'Windows Event Logs'],
+      overview: ['Review endpoint events to identify suspicious or unexpected activity.'],
+      setup: ['WIN-01 sends Sysmon and Windows events to SIEM-01.'],
+      method: ['Select a time window and host.', 'Filter by relevant event IDs.', 'Correlate process, user, and network context.', 'Record the raw evidence and interpretation.'],
+      investigation: ['Investigate a specific alert only after reproducing or collecting the corresponding events.'],
+      evidence: ['Add Wazuh screenshots, event IDs, timestamps, and redacted raw event fields.'],
+      results: ['Log collection configured; detailed investigation write-ups are in progress.'],
+      lessons: ['Practice validating log context before making a security claim.']},
+    triage: {name: 'SOC L1 Triage', status: 'In Progress', tools: ['Wazuh', 'Alert Triage', 'MITRE ATT&CK'],
+      overview: ['Develop a repeatable first-line security alert triage workflow.'],
+      setup: ['Use alerts from the isolated SOC lab.'],
+      method: ['Confirm alert source and timestamp.', 'Review affected host and user.', 'Validate related logs.', 'Assess severity and impact.', 'Document escalation criteria.'],
+      investigation: ['Classify each validated scenario using the evidence available, not assumptions.'],
+      evidence: ['Add an alert screenshot and a one-page triage worksheet.'],
+      results: ['Triage workflow in development; no completed incident outcome is claimed.'],
+      lessons: ['Practice concise handoff notes and defensible severity assessments.']},
+    ai: {name: 'AI SOC Analysis', status: 'Exploratory', tools: ['AI Assistance', 'Wazuh', 'Evidence Verification'],
+      overview: ['Explore how AI can assist with security event interpretation while maintaining analyst oversight.'],
+      setup: ['Use sanitized, non-sensitive sample logs from the lab.'],
+      method: ['Form an initial hypothesis.', 'Ask AI to propose interpretations.', 'Verify each claim against original events.', 'Document incorrect or unsupported claims.'],
+      investigation: ['Compare AI-generated hypotheses against the same source evidence reviewed manually.'],
+      evidence: ['Add a sanitized prompt/output example and a verification checklist.'],
+      results: ['Exploratory workflow in progress; conclusions require independent validation.'],
+      lessons: ['Practice using AI as an assistant rather than as a source of unverified findings.']}
+  };
+
+  function el(tag, cls, txt) {
+    const n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (txt !== undefined) n.textContent = txt;
+    return n;
+  }
+  function list(items, ordered) {
+    const ul = el(ordered ? 'ol' : 'ul');
+    items.forEach(item => ul.appendChild(el('li', '', item)));
+    return ul;
+  }
+  function renderTab() {
+    const p = subProject ? subprojects[subProject] : projects[activeProject];
+    const key = ['overview', 'setup', 'method', 'investigation', 'evidence', 'results', 'lessons'][activeTab];
+    const pane = el('div', 'case-pane');
+    pane.id = 'case-pane';
+    pane.setAttribute('role', 'tabpanel');
+    pane.setAttribute('aria-labelledby', 'case-tab-' + activeTab);
+    pane.appendChild(el('h3', '', tabs[activeTab]));
+    pane.appendChild(list(p[key] || [] , key === 'method'));
+    if (key === 'setup' && activeProject === 0 && !subProject) {
+      const flow = el('div', 'case-flow');
+      [['WIN-01', '10.10.10.10'], ['SIEM-01', '10.10.10.20'], ['KALI-01', '10.10.10.30']].forEach(([name, ip]) => {
+        const n = el('div', 'case-node');
+        n.appendChild(el('strong', '', name)); n.appendChild(el('small', '', ip)); flow.appendChild(n);
+      });
+      pane.appendChild(flow);
+      pane.appendChild(el('div', 'case-note', 'Lab architecture illustration — not a screenshot of live security activity.'));
+    }
+    if (key === 'investigation' && activeProject === 0 && !subProject) {
+      const grid = el('div', 'case-subgrid');
+      [['logs', 'Log Analysis', 'Windows & Sysmon telemetry'], ['triage', 'SOC L1 Triage', 'Alert validation and escalation'], ['ai', 'AI SOC Analysis', 'Evidence-checked AI assistance']].forEach(([id, name, desc]) => {
+        const b = el('button'); b.type = 'button';
+        b.appendChild(el('strong', '', name)); b.appendChild(el('small', '', desc));
+        b.addEventListener('click', () => { subProject = id; activeTab = 0; render(); });
+        grid.appendChild(b);
+      });
+      pane.appendChild(grid);
+    }
+    if (key === 'evidence') {
+      const note = el('div', 'case-evidence');
+      note.appendChild(el('strong', '', 'Evidence checklist — add your own verified files'));
+      note.appendChild(el('p', '', 'These are suggested artifacts, not claims that screenshots or reports have already been completed.'));
+      pane.appendChild(note);
+    }
+    if (key === 'results') pane.appendChild(el('div', 'case-note', 'Only verified observations should be presented as completed results. Planned work is clearly marked.'));
+    body.appendChild(pane);
+  }
+  function render() {
+    const p = subProject ? subprojects[subProject] : projects[activeProject];
+    title.textContent = p.name;
+    summary.textContent = subProject ? 'SOC Home Lab / ' + p.name : p.summary;
+    body.replaceChildren(); actions.replaceChildren();
+    body.appendChild(el('div', 'case-status', p.status));
+    if (subProject) {
+      const back = el('button', 'case-back', '← Back to SOC Home Lab');
+      back.type = 'button';
+      back.addEventListener('click', () => { subProject = null; activeTab = 3; render(); });
+      body.appendChild(back);
+    }
+    const tools = el('div', 'case-tools');
+    p.tools.forEach(t => tools.appendChild(el('span', '', t)));
+    body.appendChild(tools);
+    const tabBar = el('div', 'case-tabs');
+    tabBar.setAttribute('role', 'tablist');
+    tabBar.setAttribute('aria-label', 'Project case study sections');
+    tabs.forEach((name, i) => {
+      const b = el('button', 'case-tab', name); b.type = 'button'; b.id = 'case-tab-' + i;
+      b.setAttribute('role', 'tab'); b.setAttribute('aria-selected', String(activeTab === i));
+      b.setAttribute('aria-controls', 'case-pane'); b.tabIndex = activeTab === i ? 0 : -1;
+      b.addEventListener('click', () => { activeTab = i; render(); document.getElementById('case-tab-' + i).focus(); });
+      tabBar.appendChild(b);
+    });
+    body.appendChild(tabBar);
+    renderTab();
+    const links = el('div', 'case-actions');
+    const repo = el('a', '', activeProject === 0 ? 'View SOC Lab Repository ↗' : 'View GitHub Profile ↗');
+    repo.href = projects[activeProject].url; repo.target = '_blank'; repo.rel = 'noopener noreferrer';
+    links.appendChild(repo);
+    links.appendChild(el('span', 'muted', 'Add a report download when your PDF is ready.'));
+    actions.appendChild(links);
+    panel.scrollTop = 0;
+  }
+  function open(i) {
+    lastFocus = document.activeElement; activeProject = i; activeTab = 0; subProject = null;
+    render(); modal.hidden = false; document.body.style.overflow = 'hidden'; panel.focus();
+  }
+  function close() {
+    modal.hidden = true; document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+  document.querySelectorAll('.project-open').forEach(b => b.addEventListener('click', e => {
+    e.stopPropagation(); open(Number(b.dataset.project));
+  }));
+  document.querySelectorAll('.projects .project').forEach(c => {
+    c.addEventListener('click', () => open(Number(c.dataset.project)));
+    c.addEventListener('keydown', e => {
+      if (e.target === c && (e.key === 'Enter' || e.key === ' ')) {
+        e.preventDefault(); open(Number(c.dataset.project));
+      }
+    });
+  });
+  modal.querySelector('.modal-close').addEventListener('click', close);
+  modal.querySelector('.modal-backdrop').addEventListener('click', close);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && !modal.hidden) close();
+    if (e.key === 'Tab' && !modal.hidden) {
+      const focusables = [...panel.querySelectorAll('button:not([disabled]), a[href]')].filter(n => n.getClientRects().length);
+      if (!focusables.length) return;
+      const first = focusables[0], last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+})();
+</script>
+</body>
+</html>
