@@ -4,38 +4,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Natnael Haile - Cybersecurity Portfolio">
-<title>Natnael Haile | Cybersecurity Portfolio</title>
+<meta name="description" content="Natnael Haile | Cybersecurity Portfolio">
+<title>Natnael Haile | Cybersecurity Portfolio">
 
-<style>
-  body {
-    background-color: #03101e;
-    background-image:
-      linear-gradient(
-        rgba(3, 13, 26, 0.75),
-        rgba(3, 13, 26, 0.55)
-      ),
-      url("assets/cyber-sunset-background.jpg");
-
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-  }
-
-</style>
-
-</head>
-<body>
 <style>
 :root {
-  --navy: #061321;
-  --panel: #0a2035;
-  --panel-light: #102c45;
+  --bg: #03101f;
+  --navy: #071b2d;
+  --panel: rgba(4, 20, 37, .91);
   --orange: #ff713b;
-  --cyan: #39cfff;
-  --white: #f0f7ff;
-  --muted: #b2c7d9;
-  --border: #2a5875;
+  --cyan: #36cfff;
+  --text: #f0f7ff;
+  --muted: #b7c9d9;
+  --line: #275572;
 }
 
 * { box-sizing: border-box; }
@@ -44,40 +25,46 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
+  color: var(--text);
   font-family: "Segoe UI", Arial, sans-serif;
-  background: var(--navy);
-  color: var(--white);
-  line-height: 1.65;
-}
-
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background-image:
-    linear-gradient(#17416130 1px, transparent 1px),
-    linear-gradient(90deg, #17416130 1px, transparent 1px);
-  background-size: 60px 60px;
-  z-index: -1;
+  line-height: 1.6;
+  background:
+    radial-gradient(
+      ellipse at 100% 5%,
+      #ff713b25,
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 0% 70%,
+      #0b63932b,
+      transparent 35%
+    ),
+    var(--bg);
 }
 
 a { color: inherit; }
 
-button { font: inherit; cursor: pointer; }
+button {
+  font: inherit;
+  cursor: pointer;
+}
 
 button:focus-visible,
 a:focus-visible {
-  outline: 3px solid var(--cyan);
-  outline-offset: 3px;
+  outline: 2px solid var(--cyan);
+  outline-offset: 4px;
 }
 
 [hidden] { display: none !important; }
 
 .container {
-  width: min(1150px, calc(100% - 36px));
-  margin: auto;
+  width: min(1160px, calc(100% - 36px));
+  margin-inline: auto;
 }
+
+.orange { color: var(--orange); }
+
+.cyan { color: var(--cyan); }
 
 /* NAVIGATION */
 
@@ -85,445 +72,578 @@ header {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: #051322ee;
-  border-bottom: 1px solid #31516b;
+  background: rgba(3, 13, 27, .93);
+  border-bottom: 1px solid #28506b;
   backdrop-filter: blur(16px);
 }
 
 nav {
+  min-height: 67px;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  min-height: 72px;
-  gap: 16px;
+  justify-content: space-between;
+  gap: 20px;
 }
 
-.logo {
+.brand {
   text-decoration: none;
-  font-weight: bold;
-  letter-spacing: 3px;
-  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
   white-space: nowrap;
 }
 
-.logo span {
-  color: var(--orange);
+.brand-mark {
   font-size: 28px;
-  letter-spacing: -2px;
-  margin-right: 12px;
+  font-weight: 900;
+  color: var(--orange);
+}
+
+.brand-name {
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 600;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 19px;
+  gap: 24px;
 }
 
 .nav-links a {
-  text-decoration: none;
   font-size: 13px;
-  color: #d6e7f4;
+  text-decoration: none;
+  transition: color .2s;
 }
 
 .nav-links a:hover { color: var(--orange); }
 
-.menu-toggle {
+.nav-resume {
+  border: 1px solid var(--orange);
+  border-radius: 7px;
+  padding: 8px 14px;
+}
+
+.menu-button {
   display: none;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  padding: 7px 12px;
+  background: var(--navy);
   color: white;
-  background: #102c45;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 7px 13px;
 }
 
 /* HERO */
 
 .hero {
   position: relative;
-  min-height: 610px;
+  isolation: isolate;
+  min-height: 480px;
   display: flex;
   align-items: center;
   overflow: hidden;
+  border-bottom: 1px solid #e46d39;
   background:
     linear-gradient(
       90deg,
-      #03101ff7 0%,
-      #03101fe8 30%,
-      #03101f75 68%,
-      #03101f20 100%
+      #03101ffb 0%,
+      #03101fe8 32%,
+      #03101f5c 65%,
+      #03101f12 100%
     ),
-    url("assets/hero-soc.jpg") center/cover no-repeat;
-  border-bottom: 1px solid #a44d2d;
+    url("assets/hero-soc.jpg") center right / cover no-repeat;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 16, 31, .7),
+      transparent 75%
+    );
 }
 
 .hero-content {
+  max-width: 660px;
   padding: 75px 0;
-  max-width: 690px;
 }
 
 .eyebrow {
   color: var(--cyan);
+  font-size: 11px;
+  font-weight: 700;
   letter-spacing: 3px;
-  font-size: 12px;
-  font-weight: bold;
 }
 
 .hero h1 {
-  font-size: clamp(48px, 7vw, 82px);
-  letter-spacing: -3px;
+  margin: 13px 0 8px;
+  font-size: clamp(49px, 6vw, 76px);
   line-height: 1.1;
-  margin: 18px 0;
+  letter-spacing: -2px;
 }
 
-.accent { color: var(--orange); }
-
 .hero-role {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 600;
 }
 
 .hero-description {
-  max-width: 520px;
   color: var(--muted);
+  max-width: 500px;
+  margin-top: 13px;
 }
 
 .buttons {
   display: flex;
   flex-wrap: wrap;
-  gap: 14px;
-  margin: 28px 0;
+  gap: 15px;
+  margin: 27px 0;
 }
 
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
   text-decoration: none;
-  padding: 12px 23px;
-  border-radius: 9px;
+  font-size: 13px;
   font-weight: 700;
-  font-size: 14px;
-  transition: .2s;
-}
-
-.btn-primary {
-  color: white;
-  background: linear-gradient(110deg, #fa7138, #b4361f);
-  border: 1px solid #ffad68;
-  box-shadow: 0 0 25px #ff713b55;
-}
-
-.btn-secondary {
-  color: white;
-  background: #091b2d;
-  border: 1px solid #3d7da0;
+  padding: 12px 23px;
+  border-radius: 7px;
+  transition: transform .2s, box-shadow .2s;
 }
 
 .btn:hover { transform: translateY(-3px); }
 
-.hero-stats {
+.btn-primary {
+  color: white;
+  border: 1px solid #ffb275;
+  background: linear-gradient(120deg, #f76b31, #a82f17);
+  box-shadow: 0 0 22px #ff713b65;
+}
+
+.btn-secondary {
+  background: rgba(3, 17, 33, .9);
+  border: 1px solid #3c7799;
+}
+
+.stats {
   display: flex;
   flex-wrap: wrap;
   gap: 25px;
-  margin-top: 35px;
+  margin-top: 28px;
 }
 
 .stat {
-  border-right: 1px solid #31516b;
   padding-right: 25px;
+  border-right: 1px solid #2b526a;
 }
 
 .stat:last-child { border-right: 0; }
 
 .stat strong {
   display: block;
-  font-size: 25px;
+  font-size: 26px;
+  line-height: 1.2;
   color: var(--orange);
 }
 
-.stat small { color: var(--muted); }
+.stat span {
+  font-size: 12px;
+  color: var(--muted);
+}
 
-/* SECTIONS */
+/* COMMON SECTION DESIGN */
 
-section { scroll-margin-top: 90px; }
+section { scroll-margin-top: 85px; }
 
 .section {
-  padding-top: 28px;
+  margin-top: 18px;
 }
 
-.glass {
-  background: linear-gradient(
-    130deg,
-    #102b43f2,
-    #061a2cf5
-  );
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  padding: 30px;
-  box-shadow: 0 15px 45px #0007;
+.panel {
+  position: relative;
+  overflow: hidden;
+  padding: 28px;
+  border: 1px solid #36627c;
+  border-radius: 14px;
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 15px 35px #0008;
 }
 
-.glow {
-  border-color: #a45b3c;
-  box-shadow: 0 0 25px #ff713b18;
+.panel.glow {
+  border-color: #b7633f;
+  box-shadow:
+    0 0 22px #ff713b20,
+    0 15px 35px #0008;
 }
 
 .section-label {
   font-size: 11px;
-  font-weight: bold;
+  font-weight: 800;
   color: var(--cyan);
   letter-spacing: 2px;
-  text-transform: uppercase;
+}
+
+.section-label::before {
+  content: "// ";
+  color: var(--orange);
 }
 
 .section-title {
-  font-size: clamp(25px, 3vw, 35px);
-  line-height: 1.25;
-  margin: 10px 0 20px;
+  font-size: clamp(24px, 3vw, 33px);
+  line-height: 1.2;
+  margin: 8px 0 18px;
 }
 
-.description { color: var(--muted); }
+.muted { color: var(--muted); }
 
 /* ABOUT */
 
-.about-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  align-items: center;
+.about-panel {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 18, 35, .98) 0%,
+      rgba(3, 18, 35, .94) 42%,
+      rgba(3, 18, 35, .48) 100%
+    ),
+    url("assets/about-globe.jpg") center right / cover no-repeat;
 }
 
-.about-image {
-  min-height: 300px;
-  border-radius: 14px;
-  border: 1px solid var(--border);
-  background:
-    linear-gradient(#06132122, #06132155),
-    url("assets/sunset-skyline.jpg") center/cover;
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: end;
+  gap: 35px;
+  min-height: 285px;
+}
+
+.about-copy p {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 510px;
 }
 
 .about-features {
   display: grid;
-  gap: 12px;
-  margin-top: 20px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
 }
 
 .feature {
-  padding: 14px 17px;
+  min-height: 130px;
+  padding: 16px 12px;
+  border: 1px solid #2c6785;
   border-radius: 10px;
-  border: 1px solid #245572;
-  background: #0b2941;
+  background: rgba(5, 29, 50, .89);
+  backdrop-filter: blur(10px);
 }
 
-.feature strong { color: var(--cyan); }
+.feature-icon {
+  color: var(--cyan);
+  font-size: 28px;
+  line-height: 1;
+}
+
+.feature strong {
+  display: block;
+  font-size: 13px;
+  margin: 12px 0 5px;
+}
+
+.feature p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 11px;
+}
 
 /* SKILLS */
 
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 13px;
+  gap: 12px;
 }
 
 .skill {
-  padding: 20px 10px;
+  padding: 17px 8px;
   text-align: center;
-  background: #09263e;
-  border: 1px solid #275776;
-  border-radius: 12px;
+  background: rgba(7, 36, 60, .94);
+  border: 1px solid #245675;
+  border-radius: 9px;
 }
 
 .skill-icon {
-  font-size: 30px;
+  font-size: 29px;
+  line-height: 1.3;
   color: var(--cyan);
 }
 
 .skill strong {
   display: block;
-  margin-top: 8px;
+  margin: 7px 0 2px;
+  font-size: 13px;
 }
 
 .skill small {
-  display: block;
   color: var(--muted);
   font-size: 11px;
 }
 
 /* PROJECTS */
 
-.project-list {
-  display: grid;
-  gap: 15px;
-}
-
-.project-card {
-  display: grid;
-  grid-template-columns: 220px 1fr;
-  gap: 20px;
-  background: #092239;
-  border: 1px solid #2a5875;
-  border-radius: 13px;
-  overflow: hidden;
-}
-
-.project-card img {
-  width: 100%;
-  height: 100%;
-  min-height: 175px;
-  object-fit: cover;
-}
-
-.project-content { padding: 19px 19px 19px 0; }
-
-.project-content h3 { margin: 0 0 6px; }
-
-.project-content p {
-  color: var(--muted);
-  margin: 0 0 12px;
-  font-size: 14px;
-}
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 7px;
-  margin: 12px 0;
-}
-
-.tag {
-  font-size: 11px;
-  padding: 4px 10px;
-  border: 1px solid #29698e;
-  border-radius: 25px;
-  background: #0b304c;
-  color: #a1e7ff;
-}
-
-.project-link {
-  color: var(--orange);
-  border: 0;
-  background: transparent;
-  padding: 4px 0;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.project-link:hover { text-decoration: underline; }
-
-.back-button {
-  border: 0;
-  background: transparent;
-  color: var(--orange);
-  padding: 0;
-  margin-bottom: 20px;
-}
-
-.subproject-grid {
+.project-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 15px;
 }
 
-.subproject {
-  text-align: left;
-  padding: 22px;
-  background: #0b2942;
-  border: 1px solid #306483;
-  border-radius: 12px;
-  color: white;
+.project-card {
+  overflow: hidden;
+  border: 1px solid #2c6583;
+  border-radius: 10px;
+  background: rgba(5, 28, 49, .96);
+  transition: transform .2s, border-color .2s;
 }
 
-.subproject:hover { border-color: var(--orange); }
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--orange);
+}
 
-.subproject strong {
+.project-photo {
+  height: 150px;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
-  font-size: 18px;
 }
 
-.subproject p {
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.detail-grid {
+.project-number {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  width: 37px;
+  height: 37px;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 16px;
+  place-items: center;
+  background: #07192dec;
+  border: 1px solid var(--orange);
+  border-radius: 50%;
+  box-shadow: 0 0 12px #ff713b65;
+  font-size: 12px;
+}
+
+.project-body { padding: 17px; }
+
+.project-body h3 {
+  font-size: 17px;
+  margin: 0 0 7px;
+}
+
+.project-body p {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 12px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0;
+}
+
+.tag {
+  font-size: 10px;
+  color: #9be2ff;
+  border: 1px solid #296c90;
+  border-radius: 20px;
+  padding: 3px 9px;
+  background: #092b46;
+}
+
+.project-link {
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  color: var(--orange);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.project-link:hover { text-decoration: underline; }
+
+.more-projects {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 13px;
+}
+
+.mini-project {
+  background: rgba(7, 35, 57, .94);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 18px;
+}
+
+.mini-project h3 { margin: 0 0 6px; }
+
+.mini-project p {
+  margin: 0 0 10px;
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.project-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.project-header .section-title { margin-bottom: 0; }
+
+.outline-button {
+  color: white;
+  background: rgba(4, 18, 32, .9);
+  border: 1px solid var(--orange);
+  border-radius: 7px;
+  padding: 9px 16px;
+  font-size: 12px;
+  box-shadow: 0 0 15px #ff713b2b;
+}
+
+.back {
+  color: var(--orange);
+  border: 0;
+  background: transparent;
+  margin-bottom: 20px;
+  padding: 0;
+}
+
+.soc-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.soc-card {
+  color: white;
+  text-align: left;
+  padding: 20px;
+  background: #09283f;
+  border: 1px solid #2e6280;
+  border-radius: 10px;
+}
+
+.soc-card:hover { border-color: var(--orange); }
+
+.soc-card strong { display: block; }
+
+.soc-card p {
+  font-size: 13px;
+  color: var(--muted);
 }
 
 .detail-box {
+  margin-top: 15px;
+  background: #08263e;
+  border: 1px solid var(--line);
+  border-radius: 10px;
   padding: 20px;
-  background: #0a263d;
-  border: 1px solid var(--border);
-  border-radius: 12px;
 }
-
-.detail-box p { color: var(--muted); }
 
 .detail-box a { color: var(--cyan); }
 
-.lab-diagram {
-  display: block;
-  width: 100%;
-  margin-top: 18px;
-  border-radius: 12px;
-}
-
 /* EXPERIENCE */
 
-.organization-heading {
+.organization {
   display: flex;
   align-items: center;
-  gap: 17px;
-  margin-bottom: 12px;
+  gap: 16px;
+  margin: 10px 0 18px;
 }
 
 .org-logo {
-  flex: 0 0 100px;
-  width: 100px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px;
-  background: white;
-  border: 1px solid #ffa467;
-  border-radius: 13px;
+  width: 78px;
+  height: 70px;
+  flex: 0 0 78px;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  border: 1px solid #ff9b69;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 9px;
 }
 
 .org-logo img {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
   object-fit: contain;
 }
 
-.experience-card {
-  margin-top: 15px;
-  padding: 24px;
-  background: #091f34;
-  border: 1px solid #2b5672;
-  border-radius: 12px;
+.logo-fallback {
+  display: none;
+  color: #101820;
+  font-weight: 800;
+  font-size: 15px;
 }
 
-.experience-header {
+.organization h2 {
+  margin: 0;
+  font-size: clamp(25px, 3vw, 34px);
+}
+
+.experience-card {
+  background: rgba(7, 30, 50, .93);
+  border: 1px solid #2c5c79;
+  border-radius: 11px;
+  padding: 22px;
+  margin-top: 15px;
+}
+
+.experience-heading {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
+  align-items: flex-start;
+  gap: 15px;
 }
 
-.experience-header h3 { margin: 0; }
+.experience-heading h3 { margin: 0; }
 
 .company {
   color: var(--cyan);
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 14px;
 }
 
 .date {
   color: #ffc078;
   font-size: 13px;
+  white-space: nowrap;
 }
 
 .experience-card ul {
-  padding-left: 22px;
-  color: #c4d6e4;
+  color: var(--muted);
+  padding-left: 21px;
+  font-size: 14px;
 }
 
 .experience-card li { margin: 8px 0; }
@@ -531,108 +651,122 @@ section { scroll-margin-top: 90px; }
 .experience-card li::marker { color: var(--orange); }
 
 .experience-skills {
-  padding-top: 12px;
-  border-top: 1px solid #294e67;
-  color: #b6d7e8;
-  font-size: 13px;
+  color: #b8d4e5;
+  font-size: 12px;
+  padding-top: 13px;
+  border-top: 1px solid #31536b;
 }
 
-/* EDUCATION & CONTACT */
+/* EDUCATION AND CONTACT */
 
 .bottom-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-top: 28px;
+  gap: 18px;
+  margin-top: 18px;
 }
 
-.education-heading {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+.bottom-grid .panel { height: 100%; }
+
+.education-logo {
+  width: 70px;
+  height: 70px;
+  flex-basis: 70px;
 }
 
-.education-heading h3 { margin: 0; }
+.contact-panel {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(4, 20, 37, .98),
+      rgba(4, 20, 37, .8)
+    ),
+    url("assets/sunset-skyline.jpg") right center / cover no-repeat;
+}
 
 .contact-links {
   display: grid;
-  gap: 13px;
+  gap: 11px;
 }
 
 .contact-links a {
-  color: #81dbff;
+  color: #87dcff;
+  font-size: 14px;
   text-decoration: none;
   overflow-wrap: anywhere;
 }
 
-.contact-links a:hover { text-decoration: underline; }
-
-footer {
-  text-align: center;
-  color: #91aebf;
-  padding: 35px 15px;
-  font-size: 13px;
+.contact-links a:hover {
+  color: var(--orange);
+  text-decoration: underline;
 }
 
-/* MOBILE */
+footer {
+  padding: 35px 15px;
+  text-align: center;
+  font-size: 12px;
+  color: #9ab2c4;
+}
 
-@media(max-width: 850px) {
-  .menu-toggle { display: block; }
+/* RESPONSIVE */
+
+@media (max-width: 900px) {
+  .menu-button { display: block; }
 
   .nav-links {
     display: none;
     position: absolute;
-    top: 72px;
+    top: 67px;
     left: 0;
     right: 0;
+    background: #051727;
+    border-bottom: 1px solid var(--line);
+    padding: 20px;
     flex-direction: column;
     align-items: stretch;
-    padding: 20px;
-    background: #071b2d;
-    border-bottom: 1px solid var(--border);
   }
 
   .nav-links.open { display: flex; }
 
   .about-grid { grid-template-columns: 1fr; }
 
-  .skills-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-features { max-width: 700px; }
+
+  .skills-grid { grid-template-columns: repeat(4, 1fr); }
 }
 
-@media(max-width: 650px) {
+@media (max-width: 700px) {
   .hero {
-    min-height: 550px;
-    background:
-      linear-gradient(90deg, #03101ff2, #03101fa8),
-      url("assets/hero-soc.jpg") center/cover;
+    min-height: 520px;
+    background-position: 58% center;
   }
 
-  .hero h1 { font-size: 49px; }
+  .hero-content { padding: 60px 0; }
 
-  .glass { padding: 20px; }
+  .hero h1 { font-size: 50px; }
 
-  .project-card { grid-template-columns: 1fr; }
+  .panel { padding: 20px; }
 
-  .project-card img { height: 190px; }
-
-  .project-content { padding: 18px; }
-
-  .subproject-grid,
-  .detail-grid,
-  .bottom-grid {
+  .project-grid,
+  .soc-grid,
+  .bottom-grid,
+  .more-projects {
     grid-template-columns: 1fr;
   }
 
-  .experience-header { flex-direction: column; gap: 5px; }
+  .skills-grid { grid-template-columns: repeat(2, 1fr); }
 
-  .organization-heading { flex-wrap: wrap; }
+  .about-features { grid-template-columns: 1fr; }
 
-  .hero-stats { gap: 14px; }
+  .experience-heading {
+    flex-direction: column;
+    gap: 4px;
+  }
 
-  .stat { padding-right: 14px; }
+  .date { white-space: normal; }
 }
 
-@media(prefers-reduced-motion: reduce) {
+@media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
 </style>
@@ -640,20 +774,23 @@ footer {
 
 <body>
 
+<!-- NAVIGATION -->
+
 <header>
   <nav class="container">
-    <a class="logo" href="#home">
-      <span>NH</span> NATNAEL HAILE
+    <a href="#home" class="brand">
+      <span class="brand-mark">NH</span>
+      <span class="brand-name">NATNAEL HAILE</span>
     </a>
 
     <button
-      class="menu-toggle"
-      id="menuToggle"
-      aria-label="Toggle navigation"
+      id="menuButton"
+      class="menu-button"
+      aria-label="Toggle menu"
       aria-expanded="false"
     >☰</button>
 
-    <div class="nav-links" id="navLinks">
+    <div id="navLinks" class="nav-links">
       <a href="#home">Home</a>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -672,196 +809,235 @@ footer {
 <section class="hero" id="home">
   <div class="container">
     <div class="hero-content">
-      <div class="eyebrow">// CYBERSECURITY PORTFOLIO</div>
 
-      <h1>Natnael <span class="accent">Haile</span></h1>
+      <div class="eyebrow">
+        // CYBERSECURITY PORTFOLIO
+      </div>
+
+      <h1>
+        Natnael <span class="orange">Haile</span>
+      </h1>
 
       <div class="hero-role">
         Aspiring SOC Analyst | Security Monitoring |
-        Incident Investigation
+        Incident Response
       </div>
 
       <p class="hero-description">
-        Building a more secure digital world through hands-on
-        cybersecurity projects, security monitoring, continuous
-        learning, and a passion for threat detection.
+        Building a safer digital world through continuous
+        learning, hands-on cybersecurity projects,
+        and a passion for security.
       </p>
 
       <div class="buttons">
         <a href="#projects" class="btn btn-primary">
           View My Projects →
         </a>
+
         <a href="#contact" class="btn btn-secondary">
           Contact Me →
         </a>
       </div>
 
-      <div class="hero-stats">
+      <div class="stats">
         <div class="stat">
           <strong>5</strong>
-          <small>Featured Projects</small>
+          <span>Featured Projects</span>
         </div>
+
         <div class="stat">
           <strong>3</strong>
-          <small>Amazon Roles</small>
+          <span>Amazon Roles</span>
         </div>
+
         <div class="stat">
           <strong>100%</strong>
-          <small>Driven to Learn</small>
+          <span>Driven to Learn</span>
         </div>
       </div>
+
     </div>
   </div>
 </section>
 
 <!-- ABOUT -->
 
-<section id="about" class="section container">
-  <div class="glass glow">
-    <div class="section-label">// ABOUT ME</div>
+<section class="container section" id="about">
+  <div class="panel glow about-panel">
+
+    <div class="section-label">ABOUT ME</div>
 
     <div class="about-grid">
-      <div>
+      <div class="about-copy">
         <h2 class="section-title">
           Turning Curiosity into
-          <span class="accent">Cybersecurity Impact</span>
+          <span class="orange">Cybersecurity Impact</span>
         </h2>
 
-        <p class="description">
-          I'm Natnael Haile, an Information Technology student
-          concentrating in Cybersecurity at George Mason University.
-          My goal is to build a career as a Security Operations
-          Center (SOC) Analyst.
+        <p>
+          I'm Natnael Haile, an Information Technology
+          student concentrating in Cybersecurity at
+          George Mason University.
         </p>
 
-        <p class="description">
-          I'm developing practical security monitoring and
-          investigation skills through a home lab using Hyper-V,
-          Wazuh SIEM, Sysmon, Windows, and Kali Linux.
+        <p>
+          I'm building hands-on experience in security
+          monitoring, threat detection, and investigation
+          using Wazuh SIEM, Sysmon, Kali Linux, Windows,
+          and Hyper-V.
         </p>
 
-        <p class="description">
-          My professional experience at Amazon has strengthened
-          my leadership, data analysis, communication, and
-          problem-solving abilities.
+        <p>
+          My goal is to become a SOC Analyst and apply
+          both my technical skills and leadership
+          experience to protecting digital systems.
         </p>
 
-        <div class="about-features">
-          <div class="feature">
-            <strong>◈ Always Learning</strong>
-            <div>Exploring security tools and real-world challenges.</div>
-          </div>
-
-          <div class="feature">
-            <strong>◈ Problem Solver</strong>
-            <div>Investigating problems and finding practical solutions.</div>
-          </div>
-
-          <div class="feature">
-            <strong>◈ Impact Driven</strong>
-            <div>Working toward a safer digital future.</div>
-          </div>
-        </div>
+        <a href="#skills" class="btn btn-secondary">
+          More About My Skills →
+        </a>
       </div>
 
-      <div class="about-image" role="img"
-           aria-label="Cyber Sunset city skyline"></div>
+      <div class="about-features">
+        <div class="feature">
+          <div class="feature-icon">♧</div>
+          <strong>Always Learning</strong>
+          <p>
+            Exploring new tools, techniques, and
+            security challenges.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">⚙</div>
+          <strong>Problem Solver</strong>
+          <p>
+            Analyzing problems and developing
+            practical solutions.
+          </p>
+        </div>
+
+        <div class="feature">
+          <div class="feature-icon">◎</div>
+          <strong>Impact Driven</strong>
+          <p>
+            Committed to contributing to a
+            safer digital future.
+          </p>
+        </div>
+      </div>
     </div>
+
   </div>
 </section>
 
 <!-- SKILLS -->
 
-<section id="skills" class="section container">
-  <div class="glass">
-    <div class="section-label">// TECHNICAL SKILLS</div>
-    <h2 class="section-title">Tools & Technologies</h2>
+<section class="container section" id="skills">
+  <div class="panel glow">
+    <div class="section-label">TECHNICAL SKILLS</div>
+
+    <h2 class="section-title">
+      Tools & Technologies
+    </h2>
 
     <div class="skills-grid">
-
       <div class="skill">
         <div class="skill-icon">⌘</div>
+        <strong>Linux</strong>
+        <small>Kali, Ubuntu</small>
+      </div>
+
+      <div class="skill">
+        <div class="skill-icon">▦</div>
+        <strong>Windows</strong>
+        <small>Windows 11, Sysmon</small>
+      </div>
+
+      <div class="skill">
+        <div class="skill-icon">⛨</div>
         <strong>SIEM</strong>
-        <small>Wazuh, Log Analysis</small>
+        <small>Wazuh</small>
       </div>
 
       <div class="skill">
-        <div class="skill-icon">▣</div>
-        <strong>Endpoint Security</strong>
-        <small>Sysmon, Windows Event Logs</small>
-      </div>
-
-      <div class="skill">
-        <div class="skill-icon">◉</div>
+        <div class="skill-icon">∿</div>
         <strong>Network Analysis</strong>
         <small>Wireshark, TCP/IP</small>
       </div>
 
       <div class="skill">
-        <div class="skill-icon">◇</div>
+        <div class="skill-icon">◎</div>
         <strong>Vulnerability Scanning</strong>
         <small>Nmap, Nikto</small>
       </div>
 
       <div class="skill">
-        <div class="skill-icon">▤</div>
-        <strong>Operating Systems</strong>
-        <small>Windows, Linux, Kali</small>
+        <div class="skill-icon">☁</div>
+        <strong>Cloud</strong>
+        <small>AWS Fundamentals</small>
       </div>
 
       <div class="skill">
-        <div class="skill-icon">⬡</div>
-        <strong>Virtualization</strong>
-        <small>Hyper-V</small>
-      </div>
-
-      <div class="skill">
-        <div class="skill-icon">⌁</div>
-        <strong>Security Frameworks</strong>
-        <small>MITRE ATT&CK, CIS, STIG, OWASP</small>
-      </div>
-
-      <div class="skill">
-        <div class="skill-icon">⌘</div>
+        <div class="skill-icon">⌨</div>
         <strong>Databases</strong>
         <small>MySQL, SQL</small>
       </div>
 
+      <div class="skill">
+        <div class="skill-icon">◇</div>
+        <strong>Security Frameworks</strong>
+        <small>CIS, STIG, OWASP</small>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- PROJECTS -->
 
-<section id="projects" class="section container">
-  <div class="glass glow">
+<section class="container section" id="projects">
+  <div class="panel glow">
 
     <div id="projectHome">
-      <div class="section-label">// FEATURED PROJECTS</div>
+      <div class="project-header">
+        <div>
+          <div class="section-label">FEATURED PROJECTS</div>
+          <h2 class="section-title">
+            Hands-On Cybersecurity
+            <span class="orange">Projects</span>
+          </h2>
+        </div>
 
-      <h2 class="section-title">
-        Hands-On <span class="accent">Cybersecurity Projects</span>
-      </h2>
+        <button class="outline-button" id="toggleMore">
+          View All Projects →
+        </button>
+      </div>
 
-      <div class="project-list">
+      <div class="project-grid">
 
         <article class="project-card">
-          <img src="assets/project-soc.jpg"
-               alt="SOC monitoring workstation">
-          <div class="project-content">
+          <div class="project-photo">
+            <img src="assets/project-soc.jpg"
+                 alt="SOC workstation with security dashboards">
+            <span class="project-number">01</span>
+          </div>
+
+          <div class="project-body">
             <h3>SOC Home Lab</h3>
+
             <p>
-              Built a virtual SOC environment using Hyper-V,
-              Wazuh SIEM, Sysmon, Windows 11, and Kali Linux.
-              Log collection is configured, with detection
-              testing and investigation exercises in progress.
+              Built a virtual SOC environment with
+              Wazuh SIEM, Sysmon, Kali Linux, and
+              Windows 11. Detection testing is in progress.
             </p>
+
             <div class="tags">
               <span class="tag">Wazuh</span>
               <span class="tag">Sysmon</span>
-              <span class="tag">Hyper-V</span>
               <span class="tag">Kali Linux</span>
+              <span class="tag">Windows</span>
             </div>
+
             <button class="project-link" data-project="soc">
               View Project →
             </button>
@@ -869,188 +1045,188 @@ footer {
         </article>
 
         <article class="project-card">
-          <img src="assets/project-network.jpg"
-               alt="Network security analysis">
-          <div class="project-content">
+          <div class="project-photo">
+            <img src="assets/project-network.jpg"
+                 alt="Security code and network analysis">
+            <span class="project-number">02</span>
+          </div>
+
+          <div class="project-body">
             <h3>Vulnerability Assessment</h3>
+
             <p>
-              A dedicated project exploring vulnerability
-              identification, security weaknesses,
-              risk prioritization, and mitigation recommendations.
+              Exploring network discovery, security
+              weaknesses, risk assessment, and
+              mitigation recommendations.
             </p>
+
             <div class="tags">
               <span class="tag">Nmap</span>
-              <span class="tag">Security Assessment</span>
+              <span class="tag">Security</span>
+              <span class="tag">Assessment</span>
             </div>
-            <button class="project-link" data-project="vulnerability">
+
+            <button class="project-link"
+                    data-project="vulnerability">
               View Project →
             </button>
           </div>
         </article>
 
         <article class="project-card">
-          <img src="assets/project-forensics.jpg"
-               alt="Digital investigation workstation">
-          <div class="project-content">
+          <div class="project-photo">
+            <img src="assets/project-forensics.jpg"
+                 alt="Digital forensic investigation screen">
+            <span class="project-number">03</span>
+          </div>
+
+          <div class="project-body">
             <h3>Phishing Analysis</h3>
+
             <p>
-              Investigation techniques for suspicious emails,
-              sender information, malicious links, and
-              potential indicators of compromise.
+              Reviewing suspicious emails, sender
+              information, malicious links, and
+              indicators of compromise.
             </p>
+
             <div class="tags">
+              <span class="tag">Phishing</span>
               <span class="tag">Email Security</span>
               <span class="tag">IOC Analysis</span>
             </div>
-            <button class="project-link" data-project="phishing">
+
+            <button class="project-link"
+                    data-project="phishing">
               View Project →
             </button>
           </div>
         </article>
 
-        <article class="project-card">
-          <img src="assets/project-network.jpg"
-               alt="Security assessment dashboard">
-          <div class="project-content">
-            <h3>Security Controls Assessment</h3>
-            <p>
-              Evaluating system security controls using
-              CIS Benchmarks, STIG guidance, and OWASP
-              security recommendations.
-            </p>
-            <div class="tags">
-              <span class="tag">CIS</span>
-              <span class="tag">STIG</span>
-              <span class="tag">OWASP</span>
-            </div>
-            <button class="project-link" data-project="controls">
-              View Project →
-            </button>
-          </div>
+      </div>
+
+      <div id="moreProjects" class="more-projects" hidden>
+        <article class="mini-project">
+          <h3>Security Controls Assessment</h3>
+
+          <p>
+            Evaluating security controls against CIS
+            Benchmarks, STIG, and OWASP guidance.
+          </p>
+
+          <button class="project-link" data-project="controls">
+            View Project →
+          </button>
         </article>
 
-        <article class="project-card">
-          <img src="assets/project-network.jpg"
-               alt="Technology and database workstation">
-          <div class="project-content">
-            <h3>Yoga Class Registration System</h3>
-            <p>
-              A MySQL-based registration project featuring
-              client records, class check-ins, database views,
-              and stored procedures.
-            </p>
-            <div class="tags">
-              <span class="tag">MySQL</span>
-              <span class="tag">SQL</span>
-              <span class="tag">Database Design</span>
-            </div>
-            <button class="project-link" data-project="yoga">
-              View Project →
-            </button>
-          </div>
-        </article>
+        <article class="mini-project">
+          <h3>Yoga Class Registration System</h3>
 
+          <p>
+            MySQL database project with client records,
+            check-ins, views, and stored procedures.
+          </p>
+
+          <button class="project-link" data-project="yoga">
+            View Project →
+          </button>
+        </article>
       </div>
     </div>
 
-    <!-- SOC SUBPROJECTS -->
+    <!-- SOC HOME LAB DETAILS -->
 
-    <div id="socProjects" hidden>
-      <button class="back-button" id="backToProjects">
-        ← Back to All Projects
+    <div id="socHome" hidden>
+      <button class="back" id="backToProjects">
+        ← Back to Projects
       </button>
 
-      <div class="section-label">// SOC HOME LAB</div>
+      <div class="section-label">SOC HOME LAB</div>
+
       <h2 class="section-title">
-        Security Operations <span class="accent">Investigations</span>
+        SOC Investigation Projects
       </h2>
 
-      <p class="description">
-        Explore three investigation workflows being developed
-        within my virtual SOC environment.
+      <p class="muted">
+        Three security investigation workflows being
+        developed within my virtual SOC lab.
       </p>
 
-      <div class="subproject-grid">
-
-        <button class="subproject" data-project="logs">
+      <div class="soc-grid">
+        <button class="soc-card" data-project="logs">
           <strong>01 / Log Analysis</strong>
           <p>
-            Windows Event Logs, Sysmon telemetry,
-            and Wazuh log review.
+            Wazuh, Sysmon, and Windows Event Logs.
           </p>
-          <span class="accent">Explore →</span>
+          <span class="orange">Explore →</span>
         </button>
 
-        <button class="subproject" data-project="triage">
+        <button class="soc-card" data-project="triage">
           <strong>02 / SOC L1 Triage</strong>
           <p>
-            Alert validation, severity assessment,
-            documentation, and escalation.
+            Alert review, validation, severity,
+            and escalation workflows.
           </p>
-          <span class="accent">Explore →</span>
+          <span class="orange">Explore →</span>
         </button>
 
-        <button class="subproject" data-project="ai">
+        <button class="soc-card" data-project="ai">
           <strong>03 / AI SOC Analysis</strong>
           <p>
-            AI-assisted security analysis with
-            independent verification of evidence.
+            AI-assisted investigation with
+            evidence verification.
           </p>
-          <span class="accent">Explore →</span>
+          <span class="orange">Explore →</span>
         </button>
-
       </div>
 
-      <div class="detail-box" style="margin-top:20px">
-        <h3>SOC Lab Architecture</h3>
-        <p>
-          Isolated Hyper-V SOC-LAB network: 10.10.10.0/24.
-          WIN-01 (10.10.10.10), SIEM-01 (10.10.10.20),
-          and KALI-01 (10.10.10.30).
+      <div class="detail-box">
+        <h3>Lab Architecture</h3>
+
+        <p class="muted">
+          Hyper-V SOC-LAB network: 10.10.10.0/24.
+          WIN-01: 10.10.10.10.
+          SIEM-01: 10.10.10.20.
+          KALI-01: 10.10.10.30.
         </p>
 
-        <img
-          class="lab-diagram"
-          src="assets/soc-architecture.jpg"
-          alt="SOC home lab network architecture"
-          loading="lazy"
-        >
-
         <p>
-          <a href="https://github.com/Natnael-Haile/Wazuh-SOC-Home-Lab"
-             target="_blank" rel="noopener noreferrer">
+          <a
+            href="https://github.com/Natnael-Haile/Wazuh-SOC-Home-Lab"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             View SOC Home Lab on GitHub →
           </a>
         </p>
       </div>
     </div>
 
-    <!-- PROJECT DETAILS -->
+    <!-- INDIVIDUAL PROJECT DETAILS -->
 
     <div id="projectDetails" hidden>
-      <button class="back-button" id="backFromDetails">
+      <button class="back" id="backFromDetails">
         ← Back
       </button>
 
-      <div class="section-label">// PROJECT DETAILS</div>
+      <div class="section-label">PROJECT DETAILS</div>
 
       <h2 class="section-title" id="detailTitle"></h2>
-      <p class="description" id="detailDescription"></p>
 
-      <div class="detail-grid">
-        <div class="detail-box">
-          <h3>Overview</h3>
-          <p id="detailOverview"></p>
-        </div>
+      <p class="muted" id="detailDescription"></p>
 
-        <div class="detail-box">
-          <h3>Tools & Methods</h3>
-          <p id="detailTools"></p>
-          <p>
-            <em>Detailed evidence and screenshots will
-            be added as documentation is completed.</em>
-          </p>
-        </div>
+      <div class="detail-box">
+        <h3>Overview</h3>
+        <p class="muted" id="detailOverview"></p>
+      </div>
+
+      <div class="detail-box">
+        <h3>Tools & Methods</h3>
+        <p class="muted" id="detailTools"></p>
+
+        <p class="muted">
+          Detailed investigation evidence and screenshots
+          will be added as the documentation is completed.
+        </p>
       </div>
     </div>
 
@@ -1059,39 +1235,40 @@ footer {
 
 <!-- AMAZON EXPERIENCE -->
 
-<section id="experience" class="section container">
-  <div class="glass">
+<section class="container section" id="experience">
+  <div class="panel glow">
 
-    <div class="section-label">// PROFESSIONAL EXPERIENCE</div>
+    <div class="section-label">
+      PROFESSIONAL EXPERIENCE
+    </div>
 
-    <div class="organization-heading">
+    <div class="organization">
       <div class="org-logo">
         <img
-          src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Amazon_2024.svg"
+          src="https://commons.wikimedia.org/wiki/Special:FilePath/Amazon_logo.svg"
           alt="Amazon logo"
-          loading="lazy"
+          onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
         >
+        <span class="logo-fallback">amazon</span>
       </div>
 
-      <h2 class="section-title">
-        Amazon <span class="accent">Experience</span>
+      <h2>
+        Amazon <span class="orange">Experience</span>
       </h2>
     </div>
 
-    <p class="description">
-      Career progression from Associate to Process Assistant
-      to Area Manager.
+    <p class="muted">
+      Career progression from Associate to Process
+      Assistant to Area Manager.
     </p>
 
-    <!-- AREA MANAGER -->
-
     <article class="experience-card">
-      <div class="experience-header">
+      <div class="experience-heading">
         <div>
           <h3>Area Manager</h3>
           <div class="company">Amazon</div>
         </div>
-        <div class="date">May 2024 – Present</div>
+        <span class="date">May 2024 – Present</span>
       </div>
 
       <ul>
@@ -1129,15 +1306,15 @@ footer {
       </div>
     </article>
 
-    <!-- PROCESS ASSISTANT -->
-
     <article class="experience-card">
-      <div class="experience-header">
+      <div class="experience-heading">
         <div>
           <h3>Process Assistant</h3>
           <div class="company">Amazon · On-site</div>
         </div>
-        <div class="date">September 2022 – May 2024</div>
+        <span class="date">
+          September 2022 – May 2024
+        </span>
       </div>
 
       <ul>
@@ -1181,15 +1358,15 @@ footer {
       </div>
     </article>
 
-    <!-- ASSOCIATE -->
-
     <article class="experience-card">
-      <div class="experience-header">
+      <div class="experience-heading">
         <div>
           <h3>Associate</h3>
           <div class="company">Amazon · On-site</div>
         </div>
-        <div class="date">March 2020 – September 2022</div>
+        <span class="date">
+          March 2020 – September 2022
+        </span>
       </div>
 
       <ul>
@@ -1228,57 +1405,73 @@ footer {
   </div>
 </section>
 
-<!-- EDUCATION AND CONTACT -->
+<!-- EDUCATION & CONTACT -->
 
 <div class="container bottom-grid">
 
   <section id="education">
-    <div class="glass glow">
+    <div class="panel glow">
       <div class="section-label">
-        // EDUCATION & CERTIFICATIONS
+        EDUCATION & CERTIFICATIONS
       </div>
 
-      <div class="education-heading">
-        <div class="org-logo">
+      <div class="organization">
+        <div class="org-logo education-logo">
           <img
-            src="https://commons.wikimedia.org/wiki/Special:Redirect/file/George_Mason_University_logo.svg"
+            src="https://commons.wikimedia.org/wiki/Special:FilePath/George_Mason_University_logo.svg"
             alt="George Mason University logo"
-            loading="lazy"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block'"
           >
+          <span class="logo-fallback">GMU</span>
         </div>
 
-        <h3>George Mason University</h3>
+        <div>
+          <h3 style="margin:0">
+            George Mason University
+          </h3>
+          <span class="muted">
+            Fairfax, Virginia
+          </span>
+        </div>
       </div>
 
-      <p class="description">
+      <p class="muted">
         <strong>B.S. Information Technology</strong><br>
         Concentration: Cybersecurity<br>
         Expected Graduation: December 2026<br>
         GPA: 3.76
       </p>
 
+      <p class="cyan">
+        Certifications
+      </p>
+
       <div class="tags">
         <span class="tag">
-          CompTIA Security+ · In Progress
+          CompTIA Security+ (In Progress)
         </span>
       </div>
     </div>
   </section>
 
   <section id="contact">
-    <div class="glass glow">
-      <div class="section-label">// GET IN TOUCH</div>
+    <div class="panel glow contact-panel">
+      <div class="section-label">
+        GET IN TOUCH
+      </div>
 
-      <h2 class="section-title">Let's Connect</h2>
+      <h2 class="section-title">
+        Let's Connect
+      </h2>
 
-      <p class="description">
-        I'm open to discussing cybersecurity opportunities,
-        SOC projects, and professional connections.
+      <p class="muted">
+        I'm open to discussing cybersecurity,
+        SOC opportunities, and collaborative projects.
       </p>
 
       <div class="contact-links">
         <a href="mailto:natiman1018@gmail.com">
-          ✉ Email: natiman1018@gmail.com
+          ✉ natiman1018@gmail.com
         </a>
 
         <a
@@ -1286,7 +1479,7 @@ footer {
           target="_blank"
           rel="noopener noreferrer"
         >
-          in LinkedIn: Natnael Haile
+          in linkedin.com/in/natnael-haile
         </a>
 
         <a
@@ -1294,7 +1487,7 @@ footer {
           target="_blank"
           rel="noopener noreferrer"
         >
-          ⌘ GitHub: Natnael-Haile
+          ◈ github.com/Natnael-Haile
         </a>
       </div>
     </div>
@@ -1305,125 +1498,121 @@ footer {
 </main>
 
 <footer>
-  © <span id="year"></span> Natnael Haile |
-  Cybersecurity Portfolio | Built with GitHub Pages
+  © <span id="year"></span> Natnael Haile.
+  Cybersecurity Portfolio.
 </footer>
 
 <script>
-// MOBILE NAVIGATION
+// MOBILE MENU
 
-const menuToggle = document.getElementById("menuToggle");
+const menuButton = document.getElementById("menuButton");
 const navLinks = document.getElementById("navLinks");
 
-menuToggle.addEventListener("click", function () {
-  const isOpen = navLinks.classList.toggle("open");
-
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-  menuToggle.textContent = isOpen ? "✕" : "☰";
+menuButton.addEventListener("click", () => {
+  const open = navLinks.classList.toggle("open");
+  menuButton.setAttribute("aria-expanded", String(open));
+  menuButton.textContent = open ? "✕" : "☰";
 });
 
 document.querySelectorAll(".nav-links a").forEach(link => {
-  link.addEventListener("click", function () {
+  link.addEventListener("click", () => {
     navLinks.classList.remove("open");
-    menuToggle.setAttribute("aria-expanded", "false");
-    menuToggle.textContent = "☰";
+    menuButton.setAttribute("aria-expanded", "false");
+    menuButton.textContent = "☰";
   });
 });
 
-// PROJECT INFORMATION
+// PROJECT DATA
 
-const projectData = {
+const projects = {
   logs: {
     title: "Log Analysis",
-    description: "Windows, Sysmon, and Wazuh log analysis.",
+    description: "Wazuh, Sysmon, and Windows log review.",
     overview:
-      "Review Windows Event Logs, Sysmon telemetry, and Wazuh " +
-      "records to understand endpoint activity. Log collection " +
-      "is configured, and investigation documentation will " +
-      "be added as detection testing progresses.",
+      "Review Windows Event Logs, Sysmon telemetry, " +
+      "and Wazuh records to investigate endpoint activity. " +
+      "Log collection is configured; detection testing " +
+      "and documentation are in progress.",
     tools: "Wazuh SIEM, Sysmon, Windows Event Viewer",
     parent: "soc"
   },
 
   triage: {
     title: "SOC L1 Triage",
-    description: "First-level security alert investigation.",
+    description: "Security alert investigation workflow.",
     overview:
-      "Develop a repeatable workflow for reviewing security " +
-      "alerts, validating suspicious activity, assessing " +
-      "severity, documenting findings, and identifying " +
-      "when escalation is necessary.",
+      "Develop a process for reviewing alerts, validating " +
+      "suspicious activity, assessing severity, documenting " +
+      "findings, and determining escalation needs.",
     tools: "Wazuh, MITRE ATT&CK, Alert Triage",
     parent: "soc"
   },
 
   ai: {
     title: "AI SOC Analysis",
-    description: "AI-assisted security analysis.",
+    description: "AI-assisted security event interpretation.",
     overview:
-      "Explore AI-assisted interpretation of security events " +
-      "and investigation notes. AI-generated conclusions " +
-      "must be checked against original log evidence.",
-    tools: "Wazuh Telemetry, AI Analysis, Evidence Verification",
+      "Explore the use of AI to support security analysis " +
+      "while independently checking conclusions against " +
+      "original evidence and log records.",
+    tools: "Wazuh, AI Analysis, Evidence Verification",
     parent: "soc"
   },
 
   vulnerability: {
     title: "Vulnerability Assessment",
-    description: "Security vulnerability identification.",
+    description: "Identifying and evaluating weaknesses.",
     overview:
-      "A dedicated project for documenting authorized " +
-      "vulnerability discovery, risk evaluation, " +
-      "prioritization, and mitigation recommendations.",
-    tools: "Nmap, Vulnerability Assessment, Risk Analysis",
+      "A project exploring authorized network scanning, " +
+      "vulnerability identification, risk prioritization, " +
+      "and remediation recommendations.",
+    tools: "Nmap, Security Assessment, Risk Analysis",
     parent: "home"
   },
 
   phishing: {
     title: "Phishing Analysis",
-    description: "Suspicious email investigation.",
+    description: "Suspicious email analysis.",
     overview:
-      "Investigate suspicious email characteristics " +
-      "including sender information, email headers, " +
-      "links, and potential indicators of compromise. " +
-      "Detailed case documentation will be added.",
+      "Examine sender information, email headers, " +
+      "suspicious URLs, and possible indicators of compromise.",
     tools: "Email Header Analysis, URL Analysis, IOC Review",
     parent: "home"
   },
 
   controls: {
     title: "Security Controls Assessment",
-    description: "Security configuration and compliance review.",
+    description: "Security configuration evaluation.",
     overview:
       "Evaluate technical security controls against " +
       "recognized security guidance and document " +
-      "recommended mitigations.",
+      "mitigation recommendations.",
     tools: "CIS Benchmarks, STIG, OWASP Top 10",
     parent: "home"
   },
 
   yoga: {
     title: "Yoga Class Registration System",
-    description: "MySQL database registration project.",
+    description: "MySQL database project.",
     overview:
-      "A relational database project involving client " +
-      "records, class check-ins, views, stored procedures, " +
-      "and database access permissions.",
+      "Database work involving client records, " +
+      "class check-ins, views, stored procedures, " +
+      "and access permissions.",
     tools: "MySQL, SQL, Database Design",
     parent: "home"
   }
 };
 
 const projectHome = document.getElementById("projectHome");
-const socProjects = document.getElementById("socProjects");
-const projectDetails = document.getElementById("projectDetails");
+const socHome = document.getElementById("socHome");
+const details = document.getElementById("projectDetails");
 
 let currentParent = "home";
 
-function showProjectView(view) {
+function showView(view) {
   projectHome.hidden = view !== "home";
-  socProjects.hidden = view !== "soc";
-  projectDetails.hidden = view !== "details";
+  socHome.hidden = view !== "soc";
+  details.hidden = view !== "details";
 
   document.getElementById("projects").scrollIntoView({
     behavior: "smooth",
@@ -1432,16 +1621,15 @@ function showProjectView(view) {
 }
 
 document.querySelectorAll("[data-project]").forEach(button => {
-  button.addEventListener("click", function () {
-    const projectId = this.dataset.project;
+  button.addEventListener("click", () => {
+    const id = button.dataset.project;
 
-    if (projectId === "soc") {
-      showProjectView("soc");
+    if (id === "soc") {
+      showView("soc");
       return;
     }
 
-    const project = projectData[projectId];
-
+    const project = projects[id];
     if (!project) return;
 
     currentParent = project.parent;
@@ -1458,30 +1646,39 @@ document.querySelectorAll("[data-project]").forEach(button => {
     document.getElementById("detailTools").textContent =
       project.tools;
 
-    showProjectView("details");
+    showView("details");
   });
 });
 
 document.getElementById("backToProjects")
-  .addEventListener("click", function () {
-    showProjectView("home");
-  });
+  .addEventListener("click", () => showView("home"));
 
 document.getElementById("backFromDetails")
-  .addEventListener("click", function () {
-    showProjectView(currentParent);
-  });
+  .addEventListener("click", () => showView(currentParent));
 
 document.querySelectorAll('a[href="#projects"]')
   .forEach(link => {
-    link.addEventListener("click", function () {
+    link.addEventListener("click", () => {
       projectHome.hidden = false;
-      socProjects.hidden = true;
-      projectDetails.hidden = true;
+      socHome.hidden = true;
+      details.hidden = true;
     });
   });
 
-// FOOTER YEAR
+// VIEW ALL PROJECTS
+
+const toggleMore = document.getElementById("toggleMore");
+const moreProjects = document.getElementById("moreProjects");
+
+toggleMore.addEventListener("click", () => {
+  moreProjects.hidden = !moreProjects.hidden;
+
+  toggleMore.textContent = moreProjects.hidden
+    ? "View All Projects →"
+    : "Show Fewer Projects ↑";
+});
+
+// FOOTER
 
 document.getElementById("year").textContent =
   new Date().getFullYear();
